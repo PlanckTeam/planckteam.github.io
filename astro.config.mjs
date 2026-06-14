@@ -43,6 +43,6 @@ export default defineConfig({
     "server": {
         "port": 4321,
         "host": true,
-        "allowedHosts": ["vitedev.gregweb.it.eu.org"]
+        "allowedHosts": ["vitedev.gregweb.it.eu.org", "prodesk"]
     }
 });

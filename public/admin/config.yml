@@ -9,11 +9,14 @@ media_folder: /public/media
 public_folder: /media
 
 collections:
-  - name: posts
+  - name: blog
     label: Posts
     label_singular: Post
-    folder: /content/posts
+    folder: /src/content/blog
     fields:
       - { label: Title, name: title, widget: string }
-      - { label: Date, name: date, widget: datetime, type: date }
+      - { label: Description, name: description, widget: string }
+      - { label: Publish Date, name: pubDate, widget: datetime, type: date }
+      - { label: Updated Date, name: updatedDate, widget: datetime, type: date }
+      - { label: Hero Image, name: heroImage, widget: image, required: false }
       - { label: Body, name: body, widget: richtext }
