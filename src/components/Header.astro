@@ -11,7 +11,7 @@ import '../styles/header.css';
 	<nav>
 		<!-- Left logo and title -->
 		<div class="logo-title">
-			<Image src={PlanckLogo} alt="Planck Team Logo" height="50" />
+			<Image src={PlanckLogo} alt="Planck Team Logo" height="50" loading="eager" />
 			<h2><a href="/">{SITE_TITLE}</a></h2>
 		</div>
 		<!-- Center navigation links -->
@@ -19,7 +19,6 @@ import '../styles/header.css';
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/about">About us</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/contact">Contact</HeaderLink>
 		</div>
 		<!-- Right social media icons -->
 		<div class="social-links">
@@ -42,6 +41,9 @@ import '../styles/header.css';
 			<a href="https://github.com/PlanckTeam" target="_blank">
 				<span class="sr-only">Join the Planck Team community on GitHub</span>
 				<Icon name="mdi:github" width="32" height="32" aria-hidden="true" />
+			</a>
+			<a href="/admin/index.html">
+				<button>Admin</button>
 			</a>
 		</div>
 	</nav>

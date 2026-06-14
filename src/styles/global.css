@@ -8,8 +8,7 @@
 	--planck-blue: #032487;
 	--planck-blue-light: #3b82f6;
 	--planck-red: #f60000;
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
+	--accent: var(--planck-red);
 	--black: 15, 18, 25;
 	--gray: 96, 115, 159;
 	--gray-light: 229, 233, 240;

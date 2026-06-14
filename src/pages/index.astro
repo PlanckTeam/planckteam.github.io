@@ -5,6 +5,7 @@ import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import planckVideo from "../assets/planck.mp4";
 import '../styles/index.css';
+import { fade } from "astro:transitions";
 ---
 
 <!doctype html>
@@ -14,17 +15,18 @@ import '../styles/index.css';
     </head>
     <body>
         <Header />
-        <video autoplay muted loop playsinline class="background-video">
+        <video preload="metadata" autoplay muted loop playsinline class="background-video">
             <source src={planckVideo} type="video/mp4" />
         </video>
         <main class="hero">
             <section>
-                <h1>
+                <h1 transition:animate={fade({ duration: "1s" })}>
                     <span style="color: var(--planck-blue-light)">Planck</span>
                     <span style="color: var(--planck-red)">Team</span>
                 </h1>
-                <p>{SITE_DESCRIPTION}</p>
+                <p>Setting the standard since 2014.</p>
             </section>
         </main>
+        <Footer />
     </body>
 </html>
