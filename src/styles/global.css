@@ -5,6 +5,9 @@
  */
 
 :root {
+	--planck-blue: #032487;
+	--planck-blue-light: #3b82f6;
+	--planck-red: #f60000;
 	--accent: #2337ff;
 	--accent-dark: #000d8a;
 	--black: 15, 18, 25;

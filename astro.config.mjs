@@ -33,9 +33,16 @@ export default defineConfig({
                 ],
             },
         },
+        {
+            provider: fontProviders.fontsource(),
+            name: "Tourney",
+            cssVariable: "--font-tourney",
+            fallbacks: ['sans-serif'],
+        },
     ],
     "server": {
         "port": 4321,
-        "host": true
+        "host": true,
+        "allowedHosts": ["vitedev.gregweb.it.eu.org"]
     }
 });

@@ -6,7 +6,7 @@ body {
 }
 
 .hero {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.45);
     width: 100%;
     color: white;
     text-align: center;
@@ -16,7 +16,12 @@ body {
     justify-content: center;
 
     h1 {
+        font-family: var(--font-tourney);
         color: white;
+        font-size: 4em;
+        text-shadow:
+            0 0 8px rgba(0, 0, 0, 0.6),
+            2px 2px 4px rgba(0, 0, 0, 0.4);
     }
 }
 
