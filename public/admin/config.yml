@@ -6,7 +6,7 @@ backend:
   branch: main
 
 media_folder: /public/media
-public_folder: /media
+public_folder: /public
 
 collections:
   - name: blog
