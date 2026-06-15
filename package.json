@@ -9,7 +9,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "oxlint --config=oxlint.config.mts --tsconfig tsconfig.json",
+    "lint:fix": "oxlint --config=oxlint.config.mts --tsconfig tsconfig.json --fix",
+    "format": "oxfmt --check --config=oxfmt.config.mts",
+    "format:fix": "oxfmt --config=oxfmt.config.mts"
   },
   "dependencies": {
     "@astrojs/mdx": "^6.0.3",

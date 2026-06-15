@@ -4,6 +4,7 @@ import { Image } from 'astro:assets';
 import HeaderLink from './HeaderLink.astro';
 import PlanckLogo from '../assets/PlanckTeamLogo.png';
 import { Icon } from 'astro-icon/components';
+import Dropdown from './Dropdown.astro';
 import '../styles/header.css';
 ---
 
@@ -17,6 +18,14 @@ import '../styles/header.css';
 		<!-- Center navigation links -->
 		<div class="internal-links">
 			<HeaderLink href="/">Home</HeaderLink>
+			<Dropdown id="fll-dropdown" title="FLL">
+				<li><a href="/blog/fll-2025">FLL 2025</a></li>
+				<li><a href="/blog/fll-2024">FLL 2024</a></li>
+				<li><a href="/blog/fll-2022">FLL 2022</a></li>
+			</Dropdown>
+			<Dropdown id="ftc-dropdown" title="FTC">
+				<li><a href="/blog/ftc-2023">FTC 2023</a></li>
+			</Dropdown>
 			<HeaderLink href="/about">About us</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
 		</div>
@@ -41,9 +50,6 @@ import '../styles/header.css';
 			<a href="https://github.com/PlanckTeam" target="_blank">
 				<span class="sr-only">Join the Planck Team community on GitHub</span>
 				<Icon name="mdi:github" width="32" height="32" aria-hidden="true" />
-			</a>
-			<a href="/admin/index.html">
-				<button>Admin</button>
 			</a>
 		</div>
 	</nav>
