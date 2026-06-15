@@ -1,7 +1,7 @@
 ---
 title: "About Us"
 description: "Learn more about Planck Team — the robotics program from Istituto Max Planck in Villorba, Treviso."
-heroImage: "../../assets/PlanckTeamPeople.jpg"
+heroImage: "../../assets/Mestre2026.jpg"
 ---
 
 ## Who are we?

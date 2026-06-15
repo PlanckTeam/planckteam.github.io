@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import '../styles/about.css';
+
+const otherEntry = (await getCollection('other', entry => entry.id === 'fll')).at(0)!;
+const { Content } = await render(otherEntry);
+const { title, description } = otherEntry.data;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<div class="hero-image">
+					{
+						otherEntry.data.heroImage && (
+							<Image src={otherEntry.data.heroImage} width={1020} height={510} alt="Planck Team" />
+						)
+					}
+				</div>
+				<div class="content">
+					<h1>{title}</h1>
+					<hr />
+					<Content />
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
