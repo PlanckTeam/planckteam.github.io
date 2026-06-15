@@ -17,4 +17,4 @@ FTC is where we deepen our skills. We're not just competing; we're building capa
 
 ---
 
-**Learn more:** [About Planck Team](./Team.md) | [FIRST LEGO League](./FLL.md)
+**Learn more:** [About Planck Team](./about) | [FIRST LEGO League](./ftc)
