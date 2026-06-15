@@ -1,0 +1,24 @@
+.hero-image img {
+    display: block;
+    width: 100%;
+    max-width: 1020px;
+    margin: 0 auto 2em;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+}
+
+.content {
+    width: 720px;
+    max-width: calc(100% - 2em);
+    margin: auto;
+    padding: 1em;
+    color: rgb(var(--gray-dark));
+}
+
+.content h2 {
+    margin-top: 1.5em;
+}
+
+.content a {
+    color: var(--accent);
+}

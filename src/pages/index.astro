@@ -3,9 +3,9 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
-import planckVideo from "../assets/planck.mp4";
-import '../styles/index.css';
 import { fade } from "astro:transitions";
+import VideoPlayer from "../components/VideoPlayer.astro";
+import "../styles/index.css";
 ---
 
 <!doctype html>
@@ -15,9 +15,7 @@ import { fade } from "astro:transitions";
     </head>
     <body>
         <Header />
-        <video preload="metadata" autoplay muted loop playsinline class="background-video">
-            <source src={planckVideo} type="video/mp4" />
-        </video>
+        <VideoPlayer src="/bgvideo/playlist.m3u8" />
         <main class="hero">
             <section>
                 <h1 transition:animate={fade({ duration: "1s" })}>

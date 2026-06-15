@@ -17,6 +17,8 @@
     "@astrojs/sitemap": "^3.7.3",
     "astro": "^6.4.6",
     "astro-icon": "^1.1.5",
+    "hls.js": "^1.6.16",
+    "plyr": "^3.8.4",
     "sharp": "^0.34.3"
   },
   "allowScripts": {
