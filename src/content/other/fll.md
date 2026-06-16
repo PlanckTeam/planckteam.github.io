@@ -1,7 +1,7 @@
 ---
 title: "FIRST Lego League"
 description: "Learn more about Planck Team's First Lego League (FLL) competition."
-heroImage: "../../assets/Mestre2026.jpg"
+heroImage: "../../assets/Palermo2026.jpg"
 ---
 
 ## What is FLL for us?

@@ -1,7 +1,7 @@
 ---
 title: "FIRST Tech Challenge"
 description: "Learn more about Planck Team's FIRST Tech Challenge (FLL) competition."
-heroImage: "../../assets/Mestre2026.jpg"
+heroImage: "../../assets/Lignano2025.jpg"
 ---
 
 ## What is FTC for us?
