@@ -3,7 +3,7 @@ body {
     flex-direction: column;
     height: 100vh;
     margin: 0;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 
 .hero {
@@ -35,4 +35,18 @@ body {
     min-width: 100%;
     min-height: 100%;
     z-index: -1;
+}
+
+#divebtn {
+    padding: 12px 24px;
+    color: white;
+    background-color: var(--planck-blue-light);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: var(--planck-red);
+    }
 }

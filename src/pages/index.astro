@@ -17,14 +17,27 @@ import "../styles/index.css";
         <Header />
         <VideoPlayer src="/bgvideo/playlist.m3u8" />
         <main class="hero">
-            <section>
-                <h1 transition:animate={fade({ duration: "1s" })}>
+            <section transition:animate={fade({ duration: "1s" })}>
+                <h1>
                     <span style="color: var(--planck-blue-light)">Planck</span>
                     <span style="color: var(--planck-red)">Team</span>
                 </h1>
-                <p>Setting the standard since 2014.</p>
+                <p>
+                    Setting the standard since 2014.
+                </p>
+                <button id="divebtn">Dive in</button>
             </section>
         </main>
         <Footer />
     </body>
 </html>
+<script>
+    import { navigate } from "astro:transitions/client";
+
+    document.addEventListener("click", (e) => {
+        const target = e.target;
+        if (target instanceof Element && target.id === "divebtn") {
+            navigate("/about");
+        }
+    });
+</script>
