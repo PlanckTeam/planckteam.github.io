@@ -5,6 +5,7 @@ import HeaderLink from "./HeaderLink.astro";
 import PlanckLogo from "../assets/PlanckTeamLogo.png";
 import { Icon } from "astro-icon/components";
 import Dropdown from "./Dropdown.astro";
+import MobileSidebar from "./MobileSidebar.astro";
 import "../styles/header.css";
 ---
 
@@ -97,5 +98,14 @@ import "../styles/header.css";
                 />
             </a>
         </div>
+        <!-- Hamburger button (mobile) -->
+        <button
+            class="hamburger-btn"
+            onclick="window.__openMobileSidebar?.()"
+            aria-label="Open navigation menu"
+        >
+            <Icon name="mdi:menu" width="32" height="32" aria-hidden="true" />
+        </button>
     </nav>
 </header>
+<MobileSidebar />

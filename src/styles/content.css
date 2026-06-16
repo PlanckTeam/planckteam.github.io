@@ -1,18 +1,37 @@
+/* Shared styles for content pages (about, fll, ftc, blog posts) */
+
+main {
+    width: calc(100% - 2em);
+    max-width: 100%;
+    margin: 0;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+}
+
 .hero-image img {
     display: block;
-    width: 100%;
-    max-width: 1020px;
-    margin: 0 auto 2em;
+    max-width: 80%;
+    max-height: 40vh;
+    width: auto;
+    height: auto;
     border-radius: 12px;
     box-shadow: var(--box-shadow);
 }
 
-.content {
+.content,
+.prose {
     width: 720px;
     max-width: calc(100% - 2em);
     margin: auto;
     padding: 1em;
     color: rgb(var(--gray-dark));
+
+    h1 {
+        font-size: 2.5em;
+    }
 
     .dark & {
         color: rgb(var(--black));
