@@ -3,6 +3,11 @@ header {
     padding: 0 1em;
     background: white;
     box-shadow: 0 2px 8px rgba(var(--black), 5%);
+
+    .dark & {
+        background: var(--bg-surface);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 30%);
+    }
 }
 
 h2 {
@@ -26,6 +31,10 @@ nav a {
     color: var(--black);
     border-bottom: 4px solid transparent;
     text-decoration: none;
+
+    .dark & {
+        color: rgb(var(--black));
+    }
 }
 
 nav a.active {

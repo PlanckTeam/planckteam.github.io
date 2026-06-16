@@ -3,7 +3,7 @@ body {
     flex-direction: column;
     height: 100vh;
     margin: 0;
-    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .hero {
@@ -48,5 +48,9 @@ body {
 
     &:hover {
         background-color: var(--planck-red);
+    }
+
+    .dark & {
+        box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
     }
 }

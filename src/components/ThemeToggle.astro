@@ -1,0 +1,71 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<button class="theme-toggle" aria-label="Toggle theme">
+    <pre>Switch theme:</pre>
+    <Icon
+        class="sun"
+        name="mdi:white-balance-sunny"
+        width="32"
+        height="32"
+        aria-hidden="true"
+    />
+    <Icon
+        class="moon"
+        name="mdi:weather-night"
+        width="32"
+        height="32"
+        aria-hidden="true"
+    />
+</button>
+
+<style>
+    .theme-toggle {
+        border: 0;
+        background: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        pre {
+            color: rgb(var(--gray));
+            padding: 0 1em 0 0;
+        }
+    }
+    .sun {
+        display: block;
+        color: rgb(var(--gray));
+    }
+    .moon {
+        display: none;
+        color: rgb(var(--gray));
+    }
+
+    :global(.dark) .sun {
+        display: none;
+    }
+    :global(.dark) .moon {
+        display: block;
+    }
+</style>
+
+<script>
+    const html = document.documentElement;
+
+    function setTheme(dark: boolean) {
+        if (dark) {
+            html.classList.add("dark");
+        } else {
+            html.classList.remove("dark");
+        }
+        localStorage.setItem("theme", dark ? "dark" : "light");
+    }
+
+    document.addEventListener("click", (e) => {
+        const target = e.target;
+        if (target instanceof Element && target.closest(".theme-toggle")) {
+            const isDark = html.classList.contains("dark");
+            setTheme(!isDark);
+        }
+    });
+</script>

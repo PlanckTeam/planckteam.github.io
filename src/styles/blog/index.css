@@ -40,6 +40,9 @@ ul {
         a:hover {
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
+        a:active {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
         a:hover h4, a:hover .date {
             color: rgb(var(--accent));
         }
@@ -55,6 +58,24 @@ ul {
 .date {
     margin: 0;
     color: rgb(var(--gray));
+}
+
+ul li {
+    .dark & {
+        background: var(--bg-surface);
+
+        a:hover {
+            box-shadow:
+                0 0 20px rgba(255, 255, 255, 0.5),
+                0 8px 24px rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.03);
+        }
+        a:active {
+            box-shadow:
+                0 0 30px rgba(255, 255, 255, 0.7),
+                0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+    }
 }
 
 @media (max-width: 720px) {

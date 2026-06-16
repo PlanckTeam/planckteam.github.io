@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import ThemeToggle from './ThemeToggle.astro';
 const today = new Date();
 ---
 
@@ -27,6 +28,7 @@ const today = new Date();
 			<Icon name="mdi:github" width="32" height="32" aria-hidden="true" />
 		</a>
 	</div>
+	<ThemeToggle />
 </footer>
 <style>
 	footer {
@@ -34,18 +36,27 @@ const today = new Date();
 		background: linear-gradient(var(--gray-gradient)) no-repeat;
 		color: rgb(var(--gray));
 		text-align: center;
+
+		.dark & {
+			background: linear-gradient(rgba(13, 17, 23, 80%), #0d1117) no-repeat;
+		}
 	}
 	.social-links {
 		display: flex;
 		justify-content: center;
 		gap: 1em;
-		margin-top: 1em;
-	}
-	.social-links a {
-		text-decoration: none;
-		color: rgb(var(--gray));
-	}
-	.social-links a:hover {
-		color: rgb(var(--gray-dark));
+		margin: 1em 0;
+
+		a {
+			text-decoration: none;
+			color: rgb(var(--gray));
+		}
+		a:hover {
+			color: rgb(var(--gray-dark));
+		}
+
+		.dark & a:hover {
+			color: rgb(var(--black));
+		}
 	}
 </style>

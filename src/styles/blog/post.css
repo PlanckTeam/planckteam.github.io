@@ -25,6 +25,10 @@ main {
     margin: auto;
     padding: 1em;
     color: rgb(var(--gray-dark));
+
+    .dark & {
+        color: rgb(var(--black));
+    }
 }
 
 .title {
