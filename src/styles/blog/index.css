@@ -43,7 +43,8 @@ ul {
         a:active {
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
-        a:hover h4, a:hover .date {
+        a:hover h4,
+        a:hover .date {
             color: rgb(var(--accent));
         }
     }

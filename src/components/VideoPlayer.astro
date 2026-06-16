@@ -1,95 +1,106 @@
 ---
 // src/components/VideoPlayer.astro
 interface Props {
-  src: string;
+    src: string;
 }
 
 const { src } = Astro.props;
-import 'plyr/dist/plyr.css';
+import "plyr/dist/plyr.css";
 ---
 
 <div class="background-video">
-  <video id="ff-stream-player" data-src={src} crossorigin="anonymous" muted autoplay loop playsinline disablepictureinpicture />
+    <video
+        id="ff-stream-player"
+        data-src={src}
+        crossorigin="anonymous"
+        muted
+        autoplay
+        loop
+        playsinline
+        disablepictureinpicture></video>
 </div>
 
 <script>
-  import Hls from 'hls.js';
-  import Plyr from 'plyr';
+    import Hls from "hls.js";
+    import Plyr from "plyr";
 
-  let playerInstance: Plyr | null = null;
-  let hlsInstance: Hls | null = null;
+    let playerInstance: Plyr | null = null;
+    let hlsInstance: Hls | null = null;
 
-  function initPlayer() {
-    const video = document.getElementById('ff-stream-player') as HTMLVideoElement;
-    if (!video) return;
+    function initPlayer() {
+        const video = document.getElementById(
+            "ff-stream-player",
+        ) as HTMLVideoElement;
+        if (!video) return;
 
-    const streamSource = video.dataset.src;
-    if (!streamSource) return;
+        const streamSource = video.dataset.src;
+        if (!streamSource) return;
 
-    const plyrOptions = {
-      controls: [],
-      settings: ['quality', 'speed']
-    };
+        const plyrOptions = {
+            controls: [],
+            settings: ["quality", "speed"],
+        };
 
-    if (Hls.isSupported()) {
-      hlsInstance = new Hls({ 
-        maxMaxBufferLength: 10,
-        // Firefox specific: retry more aggressively if a segment load gets dropped
-        manifestLoadingMaxRetry: 4,
-        levelLoadingMaxRetry: 4
-      });
-      
-      hlsInstance.loadSource(streamSource);
-      hlsInstance.attachMedia(video);
-      
-      hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
-        playerInstance = new Plyr(video, plyrOptions);
-      });
+        if (Hls.isSupported()) {
+            hlsInstance = new Hls({
+                maxMaxBufferLength: 10,
+                // Firefox specific: retry more aggressively if a segment load gets dropped
+                manifestLoadingMaxRetry: 4,
+                levelLoadingMaxRetry: 4,
+            });
 
-      // Handle Firefox buffer stalls gracefully
-      hlsInstance.on(Hls.Events.ERROR, function (event, data) {
-        if (data.fatal) {
-          switch (data.type) {
-            case Hls.ErrorTypes.NETWORK_ERROR:
-              hlsInstance?.startLoad();
-              break;
-            case Hls.ErrorTypes.MEDIA_ERROR:
-              hlsInstance?.recoverMediaError();
-              break;
-          }
+            hlsInstance.loadSource(streamSource);
+            hlsInstance.attachMedia(video);
+
+            hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
+                playerInstance = new Plyr(video, plyrOptions);
+            });
+
+            // Handle Firefox buffer stalls gracefully
+            hlsInstance.on(Hls.Events.ERROR, function (event, data) {
+                if (data.fatal) {
+                    switch (data.type) {
+                        case Hls.ErrorTypes.NETWORK_ERROR:
+                            hlsInstance?.startLoad();
+                            break;
+                        case Hls.ErrorTypes.MEDIA_ERROR:
+                            hlsInstance?.recoverMediaError();
+                            break;
+                    }
+                }
+            });
+        } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+            video.src = streamSource;
+            playerInstance = new Plyr(video, plyrOptions);
         }
-      });
-
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = streamSource;
-      playerInstance = new Plyr(video, plyrOptions);
-    }
-  }
-
-  // The critical Firefox cleanup sequence
-  function destroyPlayer() {
-    const video = document.getElementById('ff-stream-player') as HTMLVideoElement;
-    
-    if (playerInstance) {
-      playerInstance.destroy();
-      playerInstance = null;
-    }
-    
-    if (hlsInstance) {
-      hlsInstance.detachMedia();
-      hlsInstance.destroy();
-      hlsInstance = null;
     }
 
-    if (video) {
-      // Force Firefox to completely forget the active media architecture channel
-      video.removeAttribute('src');
-      video.load(); 
-    }
-  }
+    // The critical Firefox cleanup sequence
+    function destroyPlayer() {
+        const video = document.getElementById(
+            "ff-stream-player",
+        ) as HTMLVideoElement;
 
-  // Orchestrate around Astro's single-page router lifecycle
-  initPlayer();
-  document.addEventListener('astro:page-load', initPlayer);
-  document.addEventListener('astro:before-preparation', destroyPlayer);
+        if (playerInstance) {
+            playerInstance.destroy();
+            playerInstance = null;
+        }
+
+        if (hlsInstance) {
+            hlsInstance.detachMedia();
+            hlsInstance.destroy();
+            hlsInstance = null;
+        }
+
+        if (video) {
+            // Force Firefox to completely forget the active media architecture channel
+            video.removeAttribute("src");
+            video.load();
+        }
+    }
+
+    // Orchestrate around Astro's single-page router lifecycle
+    initPlayer();
+    document.addEventListener("astro:page-load", initPlayer);
+    document.addEventListener("astro:before-preparation", destroyPlayer);
 </script>

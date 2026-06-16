@@ -6,7 +6,7 @@ updatedDate: 2026-06-15
 heroImage: /public/media/Mestre2026.jpg
 ---
 
-Today, 15/06/2026, our FLL team left from Venice to Toronto. 
+Today, 15/06/2026, our FLL team left from Venice to Toronto.
 
 Because of the sky travelling was so busy, our left was lated by around 1.5 hour, but finally we passed throught the Athlantic Ocean, reaching Toronto airport around local 5 P.M.
 

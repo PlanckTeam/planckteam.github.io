@@ -1,59 +1,101 @@
 ---
-import { SITE_TITLE } from '../consts';
-import { Image } from 'astro:assets';
-import HeaderLink from './HeaderLink.astro';
-import PlanckLogo from '../assets/PlanckTeamLogo.png';
-import { Icon } from 'astro-icon/components';
-import Dropdown from './Dropdown.astro';
-import ThemeToggle from './ThemeToggle.astro';
-import '../styles/header.css';
+import { SITE_TITLE } from "../consts";
+import { Image } from "astro:assets";
+import HeaderLink from "./HeaderLink.astro";
+import PlanckLogo from "../assets/PlanckTeamLogo.png";
+import { Icon } from "astro-icon/components";
+import Dropdown from "./Dropdown.astro";
+import "../styles/header.css";
 ---
 
 <header>
-	<nav>
-		<!-- Left logo and title -->
-		<div class="logo-title">
-			<Image src={PlanckLogo} alt="Planck Team Logo" height="50" loading="eager" />
-			<h2><a href="/">{SITE_TITLE}</a></h2>
-		</div>
-		<!-- Center navigation links -->
-		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/about">About us</HeaderLink>
-			<!-- <Dropdown id="fll-dropdown" title="FLL">
-				<li><a href="/blog/fll-2025">FLL 2025</a></li>
-				<li><a href="/blog/fll-2024">FLL 2024</a></li>
-				<li><a href="/blog/fll-2022">FLL 2022</a></li>
-			</Dropdown>
-			<Dropdown id="ftc-dropdown" title="FTC">
-				<li><a href="/blog/ftc-2023">FTC 2023</a></li>
-			</Dropdown> -->
-			<HeaderLink href="/fll">FLL</HeaderLink>
-			<HeaderLink href="/ftc">FTC</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-		</div>
-		<!-- Right social media icons -->
-		<div class="social-links">
-			<a href="https://www.instagram.com/planckteam" target="_blank">
-				<span class="sr-only">Join the Planck Team community on Instagram</span>
-				<Icon name="mdi:instagram" width="32" height="32" aria-hidden="true" />
-			</a>
-			<a href="https://www.facebook.com/planckteam" target="_blank">
-				<span class="sr-only">Join the Planck Team community on Facebook</span>
-				<Icon name="mdi:facebook" width="32" height="32" aria-hidden="true" />
-			</a>
-			<a href="https://www.linkedin.com/company/planck-team-italy" target="_blank">
-				<span class="sr-only">Join the Planck Team community on LinkedIn</span>
-				<Icon name="mdi:linkedin" width="32" height="32" aria-hidden="true" />
-			</a>
-			<a href="https://www.youtube.com/@PlanckTeam5777" target="_blank">
-				<span class="sr-only">Join the Planck Team community on YouTube</span>
-				<Icon name="mdi:youtube" width="32" height="32" aria-hidden="true" />
-			</a>
-			<a href="https://github.com/PlanckTeam" target="_blank">
-				<span class="sr-only">Join the Planck Team community on GitHub</span>
-				<Icon name="mdi:github" width="32" height="32" aria-hidden="true" />
-			</a>
-		</div>
-	</nav>
+    <nav>
+        <!-- Left logo and title -->
+        <div class="logo-title">
+            <Image
+                src={PlanckLogo}
+                alt="Planck Team Logo"
+                height="50"
+                loading="eager"
+            />
+            <h2><a href="/">{SITE_TITLE}</a></h2>
+        </div>
+        <!-- Center navigation links -->
+        <div class="internal-links">
+            <HeaderLink href="/">Home</HeaderLink>
+            <HeaderLink href="/about">About us</HeaderLink>
+            <!-- <Dropdown id="fll-dropdown" title="FLL">
+            <li><a href="/blog/fll-2025">FLL 2025</a></li>
+            <li><a href="/blog/fll-2024">FLL 2024</a></li>
+            <li><a href="/blog/fll-2022">FLL 2022</a></li>
+            </Dropdown>
+            <Dropdown id="ftc-dropdown" title="FTC">
+              <li><a href="/blog/ftc-2023">FTC 2023</a></li>
+            </Dropdown> -->
+            <HeaderLink href="/fll">FLL</HeaderLink>
+            <HeaderLink href="/ftc">FTC</HeaderLink>
+            <HeaderLink href="/blog">Blog</HeaderLink>
+        </div>
+        <!-- Right social media icons -->
+        <div class="social-links">
+            <a href="https://www.instagram.com/planckteam" target="_blank">
+                <span class="sr-only"
+                    >Join the Planck Team community on Instagram</span
+                >
+                <Icon
+                    name="mdi:instagram"
+                    width="32"
+                    height="32"
+                    aria-hidden="true"
+                />
+            </a>
+            <a href="https://www.facebook.com/planckteam" target="_blank">
+                <span class="sr-only"
+                    >Join the Planck Team community on Facebook</span
+                >
+                <Icon
+                    name="mdi:facebook"
+                    width="32"
+                    height="32"
+                    aria-hidden="true"
+                />
+            </a>
+            <a
+                href="https://www.linkedin.com/company/planck-team-italy"
+                target="_blank"
+            >
+                <span class="sr-only"
+                    >Join the Planck Team community on LinkedIn</span
+                >
+                <Icon
+                    name="mdi:linkedin"
+                    width="32"
+                    height="32"
+                    aria-hidden="true"
+                />
+            </a>
+            <a href="https://www.youtube.com/@PlanckTeam5777" target="_blank">
+                <span class="sr-only"
+                    >Join the Planck Team community on YouTube</span
+                >
+                <Icon
+                    name="mdi:youtube"
+                    width="32"
+                    height="32"
+                    aria-hidden="true"
+                />
+            </a>
+            <a href="https://github.com/PlanckTeam" target="_blank">
+                <span class="sr-only"
+                    >Join the Planck Team community on GitHub</span
+                >
+                <Icon
+                    name="mdi:github"
+                    width="32"
+                    height="32"
+                    aria-hidden="true"
+                />
+            </a>
+        </div>
+    </nav>
 </header>

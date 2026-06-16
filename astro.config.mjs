@@ -1,34 +1,34 @@
 // @ts-check
 
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
-import { defineConfig, fontProviders } from 'astro/config';
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
+import { defineConfig, fontProviders } from "astro/config";
 
-import icon from 'astro-icon';
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://example.com',
+    site: "https://example.com",
     integrations: [mdx(), sitemap(), icon()],
     fonts: [
         {
             provider: fontProviders.local(),
-            name: 'Atkinson',
-            cssVariable: '--font-atkinson',
-            fallbacks: ['sans-serif'],
+            name: "Atkinson",
+            cssVariable: "--font-atkinson",
+            fallbacks: ["sans-serif"],
             options: {
                 variants: [
                     {
-                        src: ['./src/assets/fonts/atkinson-regular.woff'],
+                        src: ["./src/assets/fonts/atkinson-regular.woff"],
                         weight: 400,
-                        style: 'normal',
-                        display: 'swap',
+                        style: "normal",
+                        display: "swap",
                     },
                     {
-                        src: ['./src/assets/fonts/atkinson-bold.woff'],
+                        src: ["./src/assets/fonts/atkinson-bold.woff"],
                         weight: 700,
-                        style: 'normal',
-                        display: 'swap',
+                        style: "normal",
+                        display: "swap",
                     },
                 ],
             },
@@ -37,12 +37,12 @@ export default defineConfig({
             provider: fontProviders.fontsource(),
             name: "Tourney",
             cssVariable: "--font-tourney",
-            fallbacks: ['sans-serif'],
+            fallbacks: ["sans-serif"],
         },
     ],
-    "server": {
-        "port": 4321,
-        "host": true,
-        "allowedHosts": ["vitedev.gregweb.it.eu.org", "prodesk"]
-    }
+    server: {
+        port: 4321,
+        host: true,
+        allowedHosts: ["vitedev.gregweb.it.eu.org", "prodesk"],
+    },
 });

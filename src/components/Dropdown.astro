@@ -1,44 +1,57 @@
 ---
-import '../styles/dropdown.css';
+import "../styles/dropdown.css";
 
 interface Props {
-  id: string;
-  title: string;
+    id: string;
+    title: string;
 }
 
 const { id, title } = Astro.props;
 ---
 
 <div class="dropdown" id={id}>
-  <p class="dropdown-trigger" data-dropdown-id={id} aria-haspopup="true" aria-expanded="false">
-    {title}
-  </p>
-  <ul class="dropdown-menu" role="menu">
-    <slot />
-  </ul>
+    <p
+        class="dropdown-trigger"
+        data-dropdown-id={id}
+        aria-haspopup="true"
+        aria-expanded="false"
+    >
+        {title}
+    </p>
+    <ul class="dropdown-menu" role="menu">
+        <slot />
+    </ul>
 </div>
 
 <script>
-  document.addEventListener('click', (e) => {
-    const trigger = (e.target as Element).closest('.dropdown-trigger');
-    if (trigger) {
-      const id = trigger.getAttribute('data-dropdown-id');
-      const menu = document.querySelector(`#${id} .dropdown-menu`);
-      const wasOpen = menu?.classList.contains('open');
+    document.addEventListener("click", (e) => {
+        const trigger = (e.target as Element).closest(".dropdown-trigger");
+        if (trigger) {
+            const id = trigger.getAttribute("data-dropdown-id");
+            const menu = document.querySelector(`#${id} .dropdown-menu`);
+            const wasOpen = menu?.classList.contains("open");
 
-      // Close all dropdowns
-      document.querySelectorAll('.dropdown-menu.open').forEach((m) => m.classList.remove('open'));
-      document.querySelectorAll('.dropdown-trigger[aria-expanded="true"]').forEach((t) => t.setAttribute('aria-expanded', 'false'));
+            // Close all dropdowns
+            document
+                .querySelectorAll(".dropdown-menu.open")
+                .forEach((m) => m.classList.remove("open"));
+            document
+                .querySelectorAll('.dropdown-trigger[aria-expanded="true"]')
+                .forEach((t) => t.setAttribute("aria-expanded", "false"));
 
-      // Toggle this one
-      if (!wasOpen && menu) {
-        menu.classList.add('open');
-        trigger.setAttribute('aria-expanded', 'true');
-      }
-    } else {
-      // Click outside — close all
-      document.querySelectorAll('.dropdown-menu.open').forEach((m) => m.classList.remove('open'));
-      document.querySelectorAll('.dropdown-trigger[aria-expanded="true"]').forEach((t) => t.setAttribute('aria-expanded', 'false'));
-    }
-  });
+            // Toggle this one
+            if (!wasOpen && menu) {
+                menu.classList.add("open");
+                trigger.setAttribute("aria-expanded", "true");
+            }
+        } else {
+            // Click outside — close all
+            document
+                .querySelectorAll(".dropdown-menu.open")
+                .forEach((m) => m.classList.remove("open"));
+            document
+                .querySelectorAll('.dropdown-trigger[aria-expanded="true"]')
+                .forEach((t) => t.setAttribute("aria-expanded", "false"));
+        }
+    });
 </script>

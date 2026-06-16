@@ -1,62 +1,95 @@
 ---
-import { Icon } from 'astro-icon/components';
-import ThemeToggle from './ThemeToggle.astro';
+import { Icon } from "astro-icon/components";
+import ThemeToggle from "./ThemeToggle.astro";
 const today = new Date();
 ---
 
 <footer>
-	{today.getFullYear()} - Planck Team, setting the standard since 2014.
-	<div class="social-links">
-		<a href="https://www.instagram.com/planckteam" target="_blank">
-			<span class="sr-only">Join the Planck Team community on Instagram</span>
-			<Icon name="mdi:instagram" width="32" height="32" aria-hidden="true" />
-		</a>
-		<a href="https://www.facebook.com/planckteam" target="_blank">
-			<span class="sr-only">Join the Planck Team community on Facebook</span>
-			<Icon name="mdi:facebook" width="32" height="32" aria-hidden="true" />
-		</a>
-		<a href="https://www.linkedin.com/company/planck-team-italy" target="_blank">
-			<span class="sr-only">Join the Planck Team community on LinkedIn</span>
-			<Icon name="mdi:linkedin" width="32" height="32" aria-hidden="true" />
-		</a>
-		<a href="https://www.youtube.com/@PlanckTeam5777" target="_blank">
-			<span class="sr-only">Join the Planck Team community on YouTube</span>
-			<Icon name="mdi:youtube" width="32" height="32" aria-hidden="true" />
-		</a>
-		<a href="https://github.com/PlanckTeam" target="_blank">
-			<span class="sr-only">Join the Planck Team community on GitHub</span>
-			<Icon name="mdi:github" width="32" height="32" aria-hidden="true" />
-		</a>
-	</div>
-	<ThemeToggle />
+    {today.getFullYear()} - Planck Team, setting the standard since 2014.
+    <div class="social-links">
+        <a href="https://www.instagram.com/planckteam" target="_blank">
+            <span class="sr-only"
+                >Join the Planck Team community on Instagram</span
+            >
+            <Icon
+                name="mdi:instagram"
+                width="32"
+                height="32"
+                aria-hidden="true"
+            />
+        </a>
+        <a href="https://www.facebook.com/planckteam" target="_blank">
+            <span class="sr-only"
+                >Join the Planck Team community on Facebook</span
+            >
+            <Icon
+                name="mdi:facebook"
+                width="32"
+                height="32"
+                aria-hidden="true"
+            />
+        </a>
+        <a
+            href="https://www.linkedin.com/company/planck-team-italy"
+            target="_blank"
+        >
+            <span class="sr-only"
+                >Join the Planck Team community on LinkedIn</span
+            >
+            <Icon
+                name="mdi:linkedin"
+                width="32"
+                height="32"
+                aria-hidden="true"
+            />
+        </a>
+        <a href="https://www.youtube.com/@PlanckTeam5777" target="_blank">
+            <span class="sr-only"
+                >Join the Planck Team community on YouTube</span
+            >
+            <Icon
+                name="mdi:youtube"
+                width="32"
+                height="32"
+                aria-hidden="true"
+            />
+        </a>
+        <a href="https://github.com/PlanckTeam" target="_blank">
+            <span class="sr-only">Join the Planck Team community on GitHub</span
+            >
+            <Icon name="mdi:github" width="32" height="32" aria-hidden="true" />
+        </a>
+    </div>
+    <ThemeToggle />
 </footer>
 <style>
-	footer {
-		padding: 2em 1em 6em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
-		color: rgb(var(--gray));
-		text-align: center;
+    footer {
+        padding: 2em 1em 6em 1em;
+        background: linear-gradient(var(--gray-gradient)) no-repeat;
+        color: rgb(var(--gray));
+        text-align: center;
 
-		.dark & {
-			background: linear-gradient(rgba(13, 17, 23, 80%), #0d1117) no-repeat;
-		}
-	}
-	.social-links {
-		display: flex;
-		justify-content: center;
-		gap: 1em;
-		margin: 1em 0;
+        .dark & {
+            background: linear-gradient(rgba(13, 17, 23, 80%), #0d1117)
+                no-repeat;
+        }
+    }
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+        margin: 1em 0;
 
-		a {
-			text-decoration: none;
-			color: rgb(var(--gray));
-		}
-		a:hover {
-			color: rgb(var(--gray-dark));
-		}
+        a {
+            text-decoration: none;
+            color: rgb(var(--gray));
+        }
+        a:hover {
+            color: rgb(var(--gray-dark));
+        }
 
-		.dark & a:hover {
-			color: rgb(var(--black));
-		}
-	}
+        .dark & a:hover {
+            color: rgb(var(--black));
+        }
+    }
 </style>

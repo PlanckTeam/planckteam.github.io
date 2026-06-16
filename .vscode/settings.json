@@ -1,0 +1,7 @@
+{
+    // this is the default for all languages, unless otherwise specified.
+    "editor.tabSize": 4,
+    "[astro]": {
+        "editor.tabSize": 4
+    }
+}
