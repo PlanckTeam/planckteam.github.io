@@ -64,12 +64,3 @@ nav a.active {
 .social-links a {
     display: flex;
 }
-
-button {
-    background-color: var(--planck-blue);
-    color: white;
-    border: none;
-    padding: 0.5em 1em;
-    border-radius: 12px;
-    cursor: pointer;
-}
