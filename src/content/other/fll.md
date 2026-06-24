@@ -20,4 +20,4 @@ FLL teaches us how to think like innovators. It's about asking the right questio
 
 ---
 
-**Learn more:** [About Planck Team](./about) | [FIRST Tech Challenge](./ftc)
+**Learn more:** [About Planck Team](/about) | [FIRST Tech Challenge](/ftc)
