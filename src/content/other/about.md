@@ -18,8 +18,8 @@ Sometimes we win, sometimes we lose, but we always compete with intent — prepa
 
 We compete across multiple FIRST programs, each demanding different skills but united by the same values:
 
-- **[FIRST LEGO League (FLL)](./fll)** — autonomous robotics, innovation projects, and real-world problem solving
-- **[FIRST Tech Challenge (FTC)](./ftc)** — head-to-head competition, complex engineering, and high-performance systems
+- **[FIRST LEGO League (FLL)](/fll)** — autonomous robotics, innovation projects, and real-world problem solving
+- **[FIRST Tech Challenge (FTC)](/ftc)** — head-to-head competition, complex engineering, and high-performance systems
 
 ## Some of our wins
 
