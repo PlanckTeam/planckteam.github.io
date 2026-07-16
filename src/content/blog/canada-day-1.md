@@ -1,5 +1,5 @@
 ---
-title: Canada - Day 1
+title: Canada - 1
 description: First day of our trip to Canada for the CANADA CUP of ROBOTICS.
 pubDate: 2026-06-15
 updatedDate: 2026-06-15
