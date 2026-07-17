@@ -3,7 +3,7 @@ title: Canada - 2
 description: Last days of our trip to Canada for the CANADA CUP of ROBOTICS.
 pubDate: 2026-06-23
 updatedDate: 2026-06-23
-heroImage: /media/Toronto_3.jpeg
+heroImage: /media/PlanckTeam_Toronto_2.jpeg
 ---
 
 Venerdì mattina è stato il momento più intenso della competizione: round ufficiali del Robot Game e, nel primo pomeriggio, l'**Alliance Round**.
