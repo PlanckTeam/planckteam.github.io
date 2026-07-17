@@ -8,7 +8,7 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://example.com",
+    site: "https://planckteam.github.io",
     integrations: [mdx(), sitemap(), icon()],
     fonts: [
         {
