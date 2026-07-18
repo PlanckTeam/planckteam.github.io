@@ -13,6 +13,7 @@ const blog = defineCollection({
             pubDate: z.coerce.date(),
             updatedDate: z.coerce.date().optional(),
             heroImage: z.optional(image()),
+            lang: z.string().default("en"),
         }),
 });
 
@@ -21,6 +22,7 @@ const other = defineCollection({
     schema: ({ image }) =>
         z.object({
             title: z.string(),
+            seoTitle: z.string().optional(),
             description: z.string(),
             heroImage: z.optional(image()),
         }),

@@ -2,16 +2,45 @@
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import { SITE_DESCRIPTION, SITE_SEO_TITLE } from "../consts";
 import { fade } from "astro:transitions";
 import VideoPlayer from "../components/VideoPlayer.astro";
+import PlanckLogo from "../assets/PlanckTeamLogo.png";
 import "../styles/index.css";
+
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    name: "Planck Team",
+    description: SITE_DESCRIPTION,
+    url: "https://planckteam.github.io",
+    logo: new URL(PlanckLogo.src, Astro.site).toString(),
+    foundingDate: "2014",
+    address: {
+        "@type": "PostalAddress",
+        addressLocality: "Villorba",
+        addressRegion: "Treviso",
+        addressCountry: "IT",
+    },
+    sameAs: [
+        "https://www.instagram.com/planckteam",
+        "https://www.facebook.com/planckteam",
+        "https://www.linkedin.com/company/planck-team-italy",
+        "https://www.youtube.com/@PlanckTeam5777",
+        "https://github.com/PlanckTeam",
+    ],
+};
 ---
 
 <!doctype html>
 <html lang="en">
     <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <BaseHead title={SITE_SEO_TITLE} description={SITE_DESCRIPTION} />
+        <script
+            type="application/ld+json"
+            is:inline
+            set:html={JSON.stringify(jsonLd)}
+        />
     </head>
     <body>
         <Header />

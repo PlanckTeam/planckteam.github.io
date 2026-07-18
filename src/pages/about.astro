@@ -10,13 +10,13 @@ const otherEntry = (
     await getCollection("other", (entry) => entry.id === "about")
 ).at(0)!;
 const { Content } = await render(otherEntry);
-const { title, description } = otherEntry.data;
+const { title, seoTitle, description } = otherEntry.data;
 ---
 
 <!doctype html>
 <html lang="en">
     <head>
-        <BaseHead title={title} description={description} />
+        <BaseHead title={seoTitle ?? title} description={description} />
     </head>
     <body>
         <Header />
@@ -29,7 +29,7 @@ const { title, description } = otherEntry.data;
                                 src={otherEntry.data.heroImage}
                                 width={1020}
                                 height={510}
-                                alt="Planck Team"
+                                alt="Il team Planck Team con il robot alla competizione di Mestre 2026"
                             />
                         )
                     }

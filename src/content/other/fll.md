@@ -1,5 +1,6 @@
 ---
 title: "FIRST Lego League"
+seoTitle: "FIRST Lego League (FLL) - Planck Team Robotics"
 description: "Learn more about Planck Team's First Lego League (FLL) competition."
 heroImage: "../../assets/PlanckTeam_Palermo2026.jpg"
 ---

@@ -3,7 +3,8 @@ title: Canada - 1
 description: First days of our trip to Canada for the CANADA CUP of ROBOTICS.
 pubDate: 2026-06-19
 updatedDate: 2026-06-19
-heroImage: /media/PlanckTeam_Toronto_1.jpeg
+heroImage: ../../assets/blog/PlanckTeam_Toronto_1.jpeg
+lang: it
 ---
 
 Lunedi 15 giugno siamo partiti da Venezia direzione Toronto. Nonostante il nostro volo abbia accumulato circa un'ora e mezza di ritardo, siamo atterrati in Canada nel tardo pomeriggio ora locale — pronti per iniziare una nuova esperienza.
