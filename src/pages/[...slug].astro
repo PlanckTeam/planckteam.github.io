@@ -3,15 +3,12 @@ import "../styles/content.css";
 import { Image } from "astro:assets";
 import { getCollection, render, type CollectionEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import { i18n } from "astro:config/client";
 
 export async function getStaticPaths() {
     const posts = await getCollection("other");
 
-    const cleanId = new RegExp(`^${i18n?.defaultLocale ?? ""}/`, "i");
-
     return posts.map((post) => ({
-        params: { slug: post.id.replace(cleanId, "") },
+        params: { slug: post.id },
         props: post,
     }));
 }
