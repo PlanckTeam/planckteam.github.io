@@ -2,6 +2,11 @@
 import { Icon } from "astro-icon/components";
 import HeaderLink from "./HeaderLink.astro";
 import ThemeToggle from "./ThemeToggle.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { i18n } from "astro:config/client";
+
+const locale = Astro.currentLocale ?? i18n?.defaultLocale ?? "";
+const url = (path?: string) => getRelativeLocaleUrl(locale, path);
 ---
 
 <aside
@@ -24,11 +29,11 @@ import ThemeToggle from "./ThemeToggle.astro";
 
         <div class="sidebar-content">
             <div class="nav-links">
-                <HeaderLink href="/">Home</HeaderLink>
-                <HeaderLink href="/about">About us</HeaderLink>
-                <HeaderLink href="/fll">FLL</HeaderLink>
-                <HeaderLink href="/ftc">FTC</HeaderLink>
-                <HeaderLink href="/blog">Blog</HeaderLink>
+                <HeaderLink href={url()}>Home</HeaderLink>
+                <HeaderLink href={url("/about")}>About us</HeaderLink>
+                <HeaderLink href={url("/fll")}>FLL</HeaderLink>
+                <HeaderLink href={url("/ftc")}>FTC</HeaderLink>
+                <HeaderLink href={url("/blog")}>Blog</HeaderLink>
             </div>
 
             <div class="sidebar-divider"></div>

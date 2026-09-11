@@ -26,6 +26,7 @@ const other = defineCollection({
             description: z.string(),
             heroImage: image().optional(),
             heroAlt: z.string().optional(),
+            lang: z.string(),
         }),
 });
 

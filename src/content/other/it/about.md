@@ -2,8 +2,9 @@
 title: "About Us"
 seoTitle: "About Planck Team | Robotics Team - Istituto Max Planck, Villorba"
 description: "Learn more about Planck Team — the robotics program from Istituto Max Planck in Villorba, Treviso."
-heroImage: "../../assets/PlanckTeam_Mestre2026.jpg"
+heroImage: "../../../assets/PlanckTeam_Mestre2026.jpg"
 heroAlt: "Il team Planck Team con il robot alla competizione di Mestre 2026"
+lang: it
 ---
 
 ## Who are we?

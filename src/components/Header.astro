@@ -6,6 +6,11 @@ import PlanckLogo from "../assets/PlanckTeamLogo.png";
 import { Icon } from "astro-icon/components";
 import MobileSidebar from "./MobileSidebar.astro";
 import "../styles/header.css";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { i18n } from "astro:config/client";
+
+const locale = Astro.currentLocale ?? i18n?.defaultLocale ?? "";
+const url = (path?: string) => getRelativeLocaleUrl(locale, path);
 ---
 
 <header>
@@ -18,15 +23,17 @@ import "../styles/header.css";
                 height="50"
                 loading="eager"
             />
-            <h2><a href="/">{SITE_TITLE}</a></h2>
+            <h2>
+                <a href={url()}>{SITE_TITLE}</a>
+            </h2>
         </div>
         {/* Center navigation links */}
         <div class="internal-links">
-            <HeaderLink href="/">Home</HeaderLink>
-            <HeaderLink href="/about">About us</HeaderLink>
-            <HeaderLink href="/fll">FLL</HeaderLink>
-            <HeaderLink href="/ftc">FTC</HeaderLink>
-            <HeaderLink href="/blog">Blog</HeaderLink>
+            <HeaderLink href={url()}>Home</HeaderLink>
+            <HeaderLink href={url("/about")}>About us</HeaderLink>
+            <HeaderLink href={url("/fll")}>FLL</HeaderLink>
+            <HeaderLink href={url("/ftc")}>FTC</HeaderLink>
+            <HeaderLink href={url("/blog")}>Blog</HeaderLink>
         </div>
         {/* Right social media icons */}
         <div class="social-links">
