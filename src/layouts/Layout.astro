@@ -7,6 +7,8 @@ import PlanckLogo from "../assets/PlanckTeamLogo.png";
 
 interface Props {
     children: unknown;
+    title?: string;
+    description?: string;
 }
 
 const jsonLd = {
@@ -36,7 +38,10 @@ const jsonLd = {
 <!doctype html>
 <html lang={Astro.currentLocale}>
     <head>
-        <BaseHead title={SITE_SEO_TITLE} description={SITE_DESCRIPTION} />
+        <BaseHead
+            title={Astro.props.title ?? SITE_SEO_TITLE}
+            description={Astro.props.description ?? SITE_DESCRIPTION}
+        />
         <script
             type="application/ld+json"
             is:inline
