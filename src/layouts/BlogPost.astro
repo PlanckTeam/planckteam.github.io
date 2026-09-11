@@ -17,9 +17,7 @@ const jsonLd = {
     "@type": "BlogPosting",
     headline: title,
     description: description,
-    image: heroImage
-        ? new URL(heroImage.src, Astro.site).toString()
-        : undefined,
+    image: heroImage ? new URL(heroImage.src, Astro.site).href : undefined,
     datePublished: pubDate.toISOString(),
     dateModified: (updatedDate ?? pubDate).toISOString(),
     author: {

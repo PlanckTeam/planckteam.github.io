@@ -1,67 +1,30 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
-import Footer from "../../components/Footer.astro";
-import Header from "../../components/Header.astro";
-import { SITE_DESCRIPTION, SITE_SEO_TITLE } from "../../consts";
-import { fade } from "astro:transitions";
-import VideoPlayer from "../../components/VideoPlayer.astro";
-import PlanckLogo from "../../assets/PlanckTeamLogo.png";
 import "../../styles/index.css";
 
-const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    name: "Planck Team",
-    description: SITE_DESCRIPTION,
-    url: "https://planckteam.github.io",
-    logo: new URL(PlanckLogo.src, Astro.site).href,
-    foundingDate: "2014",
-    address: {
-        "@type": "PostalAddress",
-        addressLocality: "Villorba",
-        addressRegion: "Treviso",
-        addressCountry: "IT",
-    },
-    sameAs: [
-        "https://www.instagram.com/planckteam",
-        "https://www.facebook.com/planckteam",
-        "https://www.linkedin.com/company/planck-team-italy",
-        "https://www.youtube.com/@PlanckTeam5777",
-        "https://github.com/PlanckTeam",
-    ],
-};
+import { fade } from "astro:transitions";
+import VideoPlayer from "../../components/VideoPlayer.astro";
+import Layout from "../../layouts/Layout.astro";
 ---
 
-<!doctype html>
-<html lang="it">
-    <head>
-        <BaseHead title={SITE_SEO_TITLE} description={SITE_DESCRIPTION} />
-        <script
-            type="application/ld+json"
-            is:inline
-            set:html={JSON.stringify(jsonLd)}
-        />
-        <meta name="google-site-verification" content="raRAcHFcxLgnO82ewnM1faeV6mm6pSTRD2puJ8yvCHo" />
-    </head>
-    <body>
-        <Header />
-        <VideoPlayer src="/bgvideo/playlist.m3u8" />
-        <main class="hero">
-            <section transition:animate={fade({ duration: "1s" })}>
-                <h1>
-                    <span style="color: var(--planck-blue-light)">Planck</span>
-                    <span style="color: var(--planck-red)">Team</span>
-                </h1>
-                <p>hello world 2014.</p>
-                <button id="divebtn">Esplora</button>
-            </section>
-        </main>
-        <Footer />
-    </body>
-</html>
+<Layout>
+    <VideoPlayer src="/bgvideo/playlist.m3u8" />
+
+    <main class="hero">
+        <section transition:animate={fade({ duration: "1s" })}>
+            <h1>
+                <span style="color: var(--planck-blue-light)">Planck</span>
+                <span style="color: var(--planck-red)">Team</span>
+            </h1>
+            <p>Setting the standard since 2014.</p>
+            <button id="divebtn">Esplora</button>
+        </section>
+    </main>
+</Layout>
 
 <script>
     import { navigate } from "astro:transitions/client";
 
-    document.querySelector("#divebtn")?.addEventListener("click", () => navigate("/about"));
+    document
+        .querySelector("#divebtn")
+        ?.addEventListener("click", () => navigate("/about"));
 </script>
