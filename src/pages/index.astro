@@ -14,7 +14,7 @@ const jsonLd = {
     name: "Planck Team",
     description: SITE_DESCRIPTION,
     url: "https://planckteam.github.io",
-    logo: new URL(PlanckLogo.src, Astro.site).toString(),
+    logo: new URL(PlanckLogo.src, Astro.site).href,
     foundingDate: "2014",
     address: {
         "@type": "PostalAddress",
@@ -59,13 +59,9 @@ const jsonLd = {
         <Footer />
     </body>
 </html>
+
 <script>
     import { navigate } from "astro:transitions/client";
 
-    document.addEventListener("click", (e) => {
-        const target = e.target;
-        if (target instanceof Element && target.id === "divebtn") {
-            navigate("/about");
-        }
-    });
+    document.querySelector("#divebtn")?.addEventListener("click", () => navigate("/about"));
 </script>

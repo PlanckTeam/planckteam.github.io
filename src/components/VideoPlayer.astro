@@ -56,7 +56,7 @@ import "plyr/dist/plyr.css";
             });
 
             // Handle Firefox buffer stalls gracefully
-            hlsInstance.on(Hls.Events.ERROR, function (event, data) {
+            hlsInstance.on(Hls.Events.ERROR, function (_event, data) {
                 if (data.fatal) {
                     switch (data.type) {
                         case Hls.ErrorTypes.NETWORK_ERROR:

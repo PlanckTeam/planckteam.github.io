@@ -43,8 +43,4 @@ export default defineConfig({
         host: true,
         allowedHosts: ["vitedev.gregweb.it.eu.org", "prodesk"],
     },
-    i18n: {
-        defaultLocale: "en",
-        locales: ["en", "it"],
-    }
 });
