@@ -1,5 +1,3 @@
-// @ts-check
-
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig, fontProviders } from "astro/config";
@@ -45,4 +43,8 @@ export default defineConfig({
         host: true,
         allowedHosts: ["vitedev.gregweb.it.eu.org", "prodesk"],
     },
+    i18n: {
+        defaultLocale: "en",
+        locales: ["en", "it"],
+    }
 });
