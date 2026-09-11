@@ -1,5 +1,4 @@
 ---
-// src/components/VideoPlayer.astro
 interface Props {
     src: string;
 }
@@ -99,8 +98,6 @@ import "plyr/dist/plyr.css";
         }
     }
 
-    // Orchestrate around Astro's single-page router lifecycle
-    initPlayer();
     document.addEventListener("astro:page-load", initPlayer);
     document.addEventListener("astro:before-preparation", destroyPlayer);
 </script>
