@@ -1,0 +1,35 @@
+---
+import "../../styles/index.css";
+
+import VideoPlayer from "../../components/VideoPlayer.astro";
+import Layout from "../../layouts/Layout.astro";
+import t from "../../i18n/strings";
+import { i18n } from "astro:config/client";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+export function getStaticPaths() {
+    return i18n?.locales.map((locale) => ({
+        params: { lang: locale },
+    }));
+}
+---
+
+<Layout>
+    <VideoPlayer src="/bgvideo/playlist.m3u8" />
+
+    <main class="hero">
+        <section>
+            <h1>
+                <span style="color: var(--planck-blue-light)">Planck</span>
+                <span style="color: var(--planck-red)">Team</span>
+            </h1>
+            <p>{t("index_standard", Astro.currentLocale!)}</p>
+            <a
+                id="divein"
+                href={getRelativeLocaleUrl(Astro.currentLocale!, "/about")}
+            >
+                {t("index_diveIn", Astro.currentLocale!)}
+            </a>
+        </section>
+    </main>
+</Layout>

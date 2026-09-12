@@ -16,15 +16,14 @@ import "plyr/dist/plyr.css";
         autoplay
         loop
         playsinline
-        disablepictureinpicture></video>
+        disablepictureinpicture
+    >
+    </video>
 </div>
 
 <script>
     import Hls from "hls.js";
     import Plyr from "plyr";
-
-    let playerInstance: Plyr | null = null;
-    let hlsInstance: Hls | null = null;
 
     function initPlayer() {
         const video = document.getElementById(
@@ -41,7 +40,7 @@ import "plyr/dist/plyr.css";
         };
 
         if (Hls.isSupported()) {
-            hlsInstance = new Hls({
+            const hlsInstance = new Hls({
                 maxMaxBufferLength: 10,
                 // Firefox specific: retry more aggressively if a segment load gets dropped
                 manifestLoadingMaxRetry: 4,
@@ -52,7 +51,7 @@ import "plyr/dist/plyr.css";
             hlsInstance.attachMedia(video);
 
             hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
-                playerInstance = new Plyr(video, plyrOptions);
+                new Plyr(video, plyrOptions);
             });
 
             // Handle Firefox buffer stalls gracefully
@@ -70,34 +69,9 @@ import "plyr/dist/plyr.css";
             });
         } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
             video.src = streamSource;
-            playerInstance = new Plyr(video, plyrOptions);
+            new Plyr(video, plyrOptions);
         }
     }
 
-    // The critical Firefox cleanup sequence
-    function destroyPlayer() {
-        const video = document.getElementById(
-            "ff-stream-player",
-        ) as HTMLVideoElement;
-
-        if (playerInstance) {
-            playerInstance.destroy();
-            playerInstance = null;
-        }
-
-        if (hlsInstance) {
-            hlsInstance.detachMedia();
-            hlsInstance.destroy();
-            hlsInstance = null;
-        }
-
-        if (video) {
-            // Force Firefox to completely forget the active media architecture channel
-            video.removeAttribute("src");
-            video.load();
-        }
-    }
-
-    document.addEventListener("astro:page-load", initPlayer);
-    document.addEventListener("astro:before-preparation", destroyPlayer);
+    document.addEventListener("DOMContentLoaded", initPlayer, { once: true });
 </script>

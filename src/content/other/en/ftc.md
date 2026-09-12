@@ -4,7 +4,6 @@ seoTitle: "FIRST Tech Challenge (FTC) Italy - Planck Team Robotics"
 description: "Learn more about Planck Team's FIRST Tech Challenge (FTC) competition."
 heroImage: "../../../assets/PlanckTeam_Lignano2025.jpg"
 heroAlt: "Planck Team's robot at the FIRST Tech Challenge of Lignano 2025"
-lang: en
 ---
 
 ## What is FTC for us?

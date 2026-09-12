@@ -2,7 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import { SITE_DESCRIPTION, SITE_SEO_TITLE } from "../consts";
+import t from "../i18n/strings";
 import PlanckLogo from "../assets/PlanckTeamLogo.png";
 
 interface Props {
@@ -15,7 +15,7 @@ const jsonLd = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     name: "Planck Team",
-    description: SITE_DESCRIPTION,
+    description: t("site_description", Astro.currentLocale!),
     url: "https://planckteam.github.io",
     logo: new URL(PlanckLogo.src, Astro.site).href,
     foundingDate: "2014",
@@ -39,8 +39,10 @@ const jsonLd = {
 <html lang={Astro.currentLocale}>
     <head>
         <BaseHead
-            title={Astro.props.title ?? SITE_SEO_TITLE}
-            description={Astro.props.description ?? SITE_DESCRIPTION}
+            title={Astro.props.title ??
+                t("site_seo_title", Astro.currentLocale!)}
+            description={Astro.props.description ??
+                t("site_description", Astro.currentLocale!)}
         />
         <script
             type="application/ld+json"

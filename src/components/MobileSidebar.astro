@@ -3,10 +3,9 @@ import { Icon } from "astro-icon/components";
 import HeaderLink from "./HeaderLink.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
-import { i18n } from "astro:config/client";
+import t from "../i18n/strings";
 
-const locale = Astro.currentLocale ?? i18n?.defaultLocale ?? "";
-const url = (path?: string) => getRelativeLocaleUrl(locale, path);
+const url = (path?: string) => getRelativeLocaleUrl(Astro.currentLocale!, path);
 ---
 
 <aside
@@ -22,15 +21,17 @@ const url = (path?: string) => getRelativeLocaleUrl(locale, path);
         <button
             class="close-btn"
             data-sidebar-close
-            aria-label="Close navigation menu"
+            aria-label={t("sidebar_close", Astro.currentLocale!)}
         >
             <Icon name="mdi:close" width="32" height="32" aria-hidden="true" />
         </button>
 
         <div class="sidebar-content">
             <div class="nav-links">
-                <HeaderLink href={url()}>Home</HeaderLink>
-                <HeaderLink href={url("/about")}>About us</HeaderLink>
+                <HeaderLink href={url("/")}>Home</HeaderLink>
+                <HeaderLink href={url("/about")}>
+                    {t("header_about", Astro.currentLocale!)}
+                </HeaderLink>
                 <HeaderLink href={url("/fll")}>FLL</HeaderLink>
                 <HeaderLink href={url("/ftc")}>FTC</HeaderLink>
                 <HeaderLink href={url("/blog")}>Blog</HeaderLink>

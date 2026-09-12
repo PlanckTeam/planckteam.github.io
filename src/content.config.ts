@@ -3,22 +3,24 @@ import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
 const blog = defineCollection({
-    loader: glob({ base: "./src/content/blog", pattern: "**/*.{md,mdx}" }),
-    // Type-check frontmatter using a schema
+    loader: glob({
+        base: "./src/content/blog", pattern: "**/*.{md,mdx}"
+    }),
     schema: ({ image }) =>
         z.object({
             title: z.string(),
             description: z.string(),
-            // Transform string to Date object
             pubDate: z.coerce.date(),
             updatedDate: z.coerce.date().optional(),
             heroImage: image().optional(),
-            lang: z.string().default("en"),
+            heroAlt: z.string().optional(),
         }),
 });
 
 const other = defineCollection({
-    loader: glob({ base: "./src/content/other", pattern: "**/*.{md,mdx}" }),
+    loader: glob({
+        base: "./src/content/other", pattern: "**/*.{md,mdx}"
+    }),
     schema: ({ image }) =>
         z.object({
             title: z.string(),
@@ -26,7 +28,6 @@ const other = defineCollection({
             description: z.string(),
             heroImage: image().optional(),
             heroAlt: z.string().optional(),
-            lang: z.string(),
         }),
 });
 
