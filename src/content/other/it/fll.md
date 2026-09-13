@@ -10,7 +10,7 @@ Da oltre un decennio, il Planck Team è una presenza costante sul palcoscenico i
 
 ## Come gareggiamo
 
-Ogni stagione, una trentina di studenti affronta una sfida reale. Progettiamo e programmiamo un robot autonomo con componenti LEGO, ma questa è solo metà della storia. L'altra metà è il progetto innovativo — una soluzione significativa a un problema che abbiamo ricercato, per cui abbiamo consultato esperti, e che abbiamo perfezionato finché non è diventata genuinamente utile.
+Ogni stagione, una trentina di studenti affronta una sfida reale. Progettiamo e programmiamo un robot autonomo con componenti LEGO, ma questa è solo metà della storia. L'altra metà è il progetto innovativo — una soluzione significativa a un problema che abbiamo analizzato, per il quale abbiamo consultato esperti, e che abbiamo perfezionato finché non è diventata genuinamente utile.
 
 I nostri progetti innovativi riflettono questo approccio: dai sistemi di monitoraggio oceanico sviluppati con gli istituti di ricerca del CNR, alle piattaforme museali virtuali, agli strumenti archeologici da campo costruiti con hardware e software che lavorano in tandem. Non ci fermiamo a costruire qualcosa che funziona; scaviamo nel problema, consultiamo esperti del settore, e spingiamo finché la soluzione non è genuinamente significativa.
 
@@ -20,4 +20,4 @@ La FLL ci insegna a pensare come innovatori. Si tratta di porre le domande giust
 
 ---
 
-**Per saperne di più:** [Chi siamo](/about) | [FIRST Tech Challenge](/ftc)
+**Per saperne di più:** [Chi siamo](/it/about) | [FIRST Tech Challenge](/it/ftc)

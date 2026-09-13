@@ -3,7 +3,7 @@ title: "About Us"
 seoTitle: "About Planck Team | Robotics Team - Istituto Max Planck, Villorba"
 description: "Learn more about Planck Team — the robotics program from Istituto Max Planck in Villorba, Treviso."
 heroImage: "../../../assets/PlanckTeam_Mestre2026.jpg"
-heroAlt: "The team Planck Team wit the robot at the competition of Mestre 2026"
+heroAlt: "Planck Team with the robot at the Mestre 2026 competition"
 ---
 
 **Planck Team** is the robotics program from Istituto Max Planck in Villorba, Treviso — and for over a decade, we have been one of Italy's most consistent presences on the international robotics stage, competing across three continents in multiple FIRST programs.
@@ -18,8 +18,8 @@ Sometimes we win, sometimes we lose, but we always compete with intent — prepa
 
 We compete across multiple FIRST programs, each demanding different skills but united by the same values:
 
-- **[FIRST LEGO League (FLL)](/fll)** — autonomous robotics, innovation projects, and real-world problem solving
-- **[FIRST Tech Challenge (FTC)](/ftc)** — head-to-head competition, complex engineering, and high-performance systems
+- **[FIRST LEGO League (FLL)](/en/fll)** — autonomous robotics, innovation projects, and real-world problem solving
+- **[FIRST Tech Challenge (FTC)](/en/ftc)** — head-to-head competition, complex engineering, and high-performance systems
 
 ## Some of our wins
 
