@@ -6,8 +6,6 @@ heroImage: "../../../assets/PlanckTeam_Palermo2026.jpg"
 heroAlt: "Planck Team alla competizione FIRST LEGO League di Palermo 2026"
 ---
 
-## Cosa è FLL per noi?
-
 Da oltre un decennio, il Planck Team è una presenza costante sul palcoscenico internazionale della FLL, rappresentando l'Italia ai campionati mondiali in tre continenti. La FLL è dove scopriamo cosa può fare la robotica — e cosa possiamo fare insieme.
 
 ## Come gareggiamo

@@ -6,8 +6,6 @@ heroImage: "../../../assets/PlanckTeam_Lignano2025.jpg"
 heroAlt: "Robot di Planck Team alla competizione FIRST Tech Challenge di Lignano 2025"
 ---
 
-## Cosa è FTC per noi?
-
 Il Planck Team FTC gareggia nella FIRST Tech Challenge, dove portiamo la stessa mentalità collaborativa e la stessa instancabile risoluzione dei problemi della FLL in un ambiente robotico più complesso, testa a testa. Abbiamo conquistato il titolo nazionale alla FTC Scrimmage 2023 e gareggiato a livello internazionale a Singapore e oltre, restando impegnati a rappresentare l'Italia ai massimi livelli competitivi.
 
 ## Come costruiamo in modo diverso
