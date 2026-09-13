@@ -9,6 +9,19 @@ backend:
 media_folder: /public/media
 public_folder: /media
 
+# Slugify uploaded filenames (`Screenshot ....png` -> `screenshot-....png`)
+# so entries never reference paths with spaces/special chars.
+media_libraries:
+    default:
+        config:
+            slugify_filename: true
+
+# URL-encode file paths written to frontmatter + drop empty optional fields
+# (avoids `heroImage: ''` noise).
+output:
+    encode_file_path: true
+    omit_empty_optional_fields: true
+
 i18n:
     structure: multiple_folders
     locales: [en, it]
