@@ -11,12 +11,19 @@ type Props = CollectionEntry<"blog">["data"];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
+const heroImageSrc =
+    typeof heroImage === "string"
+        ? new URL(heroImage, Astro.site).href
+        : heroImage
+          ? new URL(heroImage.src, Astro.site).href
+          : undefined;
+
 const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: title,
     description: description,
-    image: heroImage ? new URL(heroImage.src, Astro.site).href : undefined,
+    image: heroImageSrc,
     datePublished: pubDate.toISOString(),
     dateModified: (updatedDate ?? pubDate).toISOString(),
     author: {
@@ -43,14 +50,22 @@ const jsonLd = {
             <article>
                 <div class="hero-image">
                     {
-                        heroImage && (
-                            <Image
-                                width={1020}
-                                height={510}
-                                src={heroImage}
-                                alt={title}
-                            />
-                        )
+                        heroImage &&
+                            (typeof heroImage === "string" ? (
+                                <img
+                                    src={heroImage}
+                                    alt={title}
+                                    width={1020}
+                                    height={510}
+                                />
+                            ) : (
+                                <Image
+                                    width={1020}
+                                    height={510}
+                                    src={heroImage}
+                                    alt={title}
+                                />
+                            ))
                     }
                 </div>
                 <div class="prose">

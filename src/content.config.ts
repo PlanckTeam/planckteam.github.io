@@ -12,7 +12,10 @@ const blog = defineCollection({
             description: z.string(),
             pubDate: z.coerce.date(),
             updatedDate: z.coerce.date().optional(),
-            heroImage: image().optional(),
+            // Imported images (src/...) resolve to metadata; CMS uploads
+            // reference public/ files as absolute URL strings (/media/...),
+            // which must stay strings (astro:assets can't import them).
+            heroImage: z.union([z.string().startsWith("/"), image()]).optional(),
             heroAlt: z.string().optional(),
         }),
 });
