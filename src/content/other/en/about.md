@@ -6,8 +6,6 @@ heroImage: "../../../assets/PlanckTeam_Mestre2026.jpg"
 heroAlt: "The team Planck Team wit the robot at the competition of Mestre 2026"
 ---
 
-## Who are we?
-
 **Planck Team** is the robotics program from Istituto Max Planck in Villorba, Treviso — and for over a decade, we have been one of Italy's most consistent presences on the international robotics stage, competing across three continents in multiple FIRST programs.
 
 ## How we actually work

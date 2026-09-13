@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import HeaderLink from "./HeaderLink.astro";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import t from "../i18n/strings";
@@ -28,13 +29,13 @@ const url = (path?: string) => getRelativeLocaleUrl(Astro.currentLocale!, path);
 
         <div class="sidebar-content">
             <div class="nav-links">
-                <HeaderLink href={url("/")}>Home</HeaderLink>
+                <HeaderLink href={url("/")}>{t("nav_home", Astro.currentLocale!)}</HeaderLink>
                 <HeaderLink href={url("/about")}>
                     {t("header_about", Astro.currentLocale!)}
                 </HeaderLink>
                 <HeaderLink href={url("/fll")}>FLL</HeaderLink>
                 <HeaderLink href={url("/ftc")}>FTC</HeaderLink>
-                <HeaderLink href={url("/blog")}>Blog</HeaderLink>
+                <HeaderLink href={url("/blog")}>{t("nav_blog", Astro.currentLocale!)}</HeaderLink>
             </div>
 
             <div class="sidebar-divider"></div>
@@ -105,6 +106,10 @@ const url = (path?: string) => getRelativeLocaleUrl(Astro.currentLocale!, path);
             <div class="sidebar-divider"></div>
 
             <ThemeToggle />
+
+            <div class="sidebar-divider"></div>
+
+            <LanguageSwitcher variant="inline" />
         </div>
     </nav>
 </aside>

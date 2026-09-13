@@ -1,9 +1,10 @@
 ---
 import { Icon } from "astro-icon/components";
+import t from "../i18n/strings";
 ---
 
 <button class="theme-toggle" aria-label="Toggle theme">
-    <pre>Switch theme:</pre>
+    <pre>{t("theme_switch", Astro.currentLocale!)}</pre>
     <span class="sun-icon">
         <Icon
             name="mdi:white-balance-sunny"

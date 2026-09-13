@@ -5,6 +5,7 @@ import HeaderLink from "./HeaderLink.astro";
 import PlanckLogo from "../assets/PlanckTeamLogo.png";
 import { Icon } from "astro-icon/components";
 import MobileSidebar from "./MobileSidebar.astro";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import t from "../i18n/strings";
 
@@ -27,13 +28,13 @@ const url = (path?: string) => getRelativeLocaleUrl(Astro.currentLocale!, path);
         </div>
         {/* Center navigation links */}
         <div class="internal-links">
-            <HeaderLink href={url()}>Home</HeaderLink>
+            <HeaderLink href={url()}>{t("nav_home", Astro.currentLocale!)}</HeaderLink>
             <HeaderLink href={url("/about")}>
                 {t("header_about", Astro.currentLocale!)}
             </HeaderLink>
             <HeaderLink href={url("/fll")}>FLL</HeaderLink>
             <HeaderLink href={url("/ftc")}>FTC</HeaderLink>
-            <HeaderLink href={url("/blog")}>Blog</HeaderLink>
+            <HeaderLink href={url("/blog")}>{t("nav_blog", Astro.currentLocale!)}</HeaderLink>
         </div>
         {/* Right social media icons */}
         <div class="social-links">
@@ -95,6 +96,7 @@ const url = (path?: string) => getRelativeLocaleUrl(Astro.currentLocale!, path);
                     aria-hidden="true"
                 />
             </a>
+            <LanguageSwitcher />
         </div>
         {/* Hamburger button (mobile) */}
         <button
@@ -191,9 +193,29 @@ const url = (path?: string) => getRelativeLocaleUrl(Astro.currentLocale!, path);
         flex: 1;
         display: flex;
         justify-content: flex-end;
+        align-items: center;
 
-        a {
+        & > a {
             display: flex;
+        }
+
+        /* LanguageSwitcher icon toggle mirrors the social icons:
+           same padding, color and hover as the anchors above */
+        :global(.language-switcher .lang-toggle) {
+            padding: 1em 0.5em;
+            color: var(--black);
+            border-bottom: 4px solid transparent;
+        }
+
+        :global(.language-switcher .lang-toggle:hover) {
+            color: var(--accent);
+            filter: brightness(1.2);
+        }
+
+        :global(.language-switcher a.lang) {
+            display: inline;
+            padding: 0.15em 0.3em;
+            border-bottom: none;
         }
     }
 

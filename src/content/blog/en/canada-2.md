@@ -4,19 +4,19 @@ description: Last days of our trip to Canada for the CANADA CUP of ROBOTICS.
 pubDate: 2026-06-23
 updatedDate: 2026-06-23
 heroImage: ../../../assets/blog/PlanckTeam_Toronto_2.jpeg
-heroAlt: update me
+heroAlt: Planck Team with the South Korean team during the Alliance Round in Toronto
 ---
 
-Venerdì mattina è stato il momento più intenso della competizione: round ufficiali del Robot Game e, nel primo pomeriggio, l'**Alliance Round**.
+Friday morning was the most intense moment of the competition: official Robot Game rounds and, in the early afternoon, the **Alliance Round**.
 
-I punteggi sono migliorati progressivamente nel corso dei round, portandoci a **entrare nella top 20** su 100 squadre da tutto il mondo — un risultato di cui siamo soddisfatti, considerato il livello della competizione.
+Our scores improved steadily round after round, taking us **into the top 20** out of 100 teams from all over the world — a result we're happy with, given the level of the competition.
 
-L'Alliance Round, invece, funziona in modo diverso rispetto ai round classici: due robot di squadre diverse scendono in campo insieme e collaborano per ottenere il punteggio complessivo più alto possibile. Non entra nella classifica ufficiale, ma è una delle parti più interessanti dell'evento: bisogna coordinarsi con un team appena conosciuto, capire come lavora il loro robot e trovare un modo per farli cooperare. Siamo stati abbinati a una squadra della **Corea del Sud**, e il match è andato bene — buona intesa e una buona esecuzione del round.
+The Alliance Round works differently from the classic rounds: two robots from different teams take the field together and collaborate to achieve the highest possible combined score. It doesn't count toward the official ranking, but it's one of the most interesting parts of the event: you have to coordinate with a team you just met, understand how their robot works, and find a way to make them cooperate. We were paired with a team from **South Korea**, and the match went well — good chemistry and a good execution of the round.
 
-Sabato mattina si è tenuta la cerimonia di chiusura, per poi tornare alla città di Toronto per l'ultima giornata.
+Saturday morning brought the closing ceremony, then back to the city of Toronto for our last day.
 
-Tra sabato pomeriggio e domenica abbiamo potuto apprezzare alcuni altri elementi importanti della città, tra cui il famoso acquario e la Nathan Phillips Square. 
+Between Saturday afternoon and Sunday we got to enjoy a few more highlights of the city, including the famous aquarium and Nathan Phillips Square.
 
-Domenica sera abbiamo preso l'aereo per il nostro ritorno a casa, abbandonando la vita e i luoghi visitati ma portandoci a casa una grandissima esperienza internazionale, che rimarrà di sicuro con noi per molto tempo.
+On Sunday evening we boarded our flight home, leaving behind the life and places we visited but bringing back a huge international experience, one that will surely stay with us for a long time.
 
-Non ci fermiamo qui, però: il prossimo capitolo è Istanbul, dove nei prossimi giorni saremo impegnati nella **First Tech Challenge**. Seguiteci! 💪
+But we're not stopping here: the next chapter is Istanbul, where in the coming days we'll be competing in the **First Tech Challenge**. Follow us! 💪
