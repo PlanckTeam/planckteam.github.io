@@ -1,6 +1,3 @@
-/// <reference path="../.astro/types.d.ts" />
-/// <reference types="astro/client" />
-
 // Workaround: plyr ships with incomplete .d.ts (missing default export).
 // This module declaration overrides it to make `import Plyr from 'plyr'` work.
 declare module "plyr" {
@@ -19,7 +16,7 @@ declare module "plyr" {
             mediaType?: string,
             provider?: string,
             playsInline?: boolean,
-        ): { api: boolean; native: boolean };
+        ): { api: boolean; native: boolean; };
         constructor(
             targets: NodeList | HTMLElement | HTMLElement[] | string,
             options?: ControlsOptions,

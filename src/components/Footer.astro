@@ -1,15 +1,16 @@
 ---
 import { Icon } from "astro-icon/components";
 import ThemeToggle from "./ThemeToggle.astro";
+import t from "../i18n/strings";
 const today = new Date();
 ---
 
 <footer>
-    {today.getFullYear()} - Planck Team, setting the standard since 2014.
+    {today.getFullYear()} - Planck Team, {t("footer_tagline", Astro.currentLocale!)}.
     <div class="social-links">
         <a href="https://www.instagram.com/planckteam" target="_blank">
             <span class="sr-only"
-                >Join the Planck Team community on Instagram</span
+                >{t("header_instagram", Astro.currentLocale!)}</span
             >
             <Icon
                 name="mdi:instagram"
@@ -20,7 +21,7 @@ const today = new Date();
         </a>
         <a href="https://www.facebook.com/planckteam" target="_blank">
             <span class="sr-only"
-                >Join the Planck Team community on Facebook</span
+                >{t("header_facebook", Astro.currentLocale!)}</span
             >
             <Icon
                 name="mdi:facebook"
@@ -34,7 +35,7 @@ const today = new Date();
             target="_blank"
         >
             <span class="sr-only"
-                >Join the Planck Team community on LinkedIn</span
+                >{t("header_linkedin", Astro.currentLocale!)}</span
             >
             <Icon
                 name="mdi:linkedin"
@@ -45,7 +46,7 @@ const today = new Date();
         </a>
         <a href="https://www.youtube.com/@PlanckTeam5777" target="_blank">
             <span class="sr-only"
-                >Join the Planck Team community on YouTube</span
+                >{t("header_youtube", Astro.currentLocale!)}</span
             >
             <Icon
                 name="mdi:youtube"
@@ -55,7 +56,7 @@ const today = new Date();
             />
         </a>
         <a href="https://github.com/PlanckTeam" target="_blank">
-            <span class="sr-only">Join the Planck Team community on GitHub</span
+            <span class="sr-only">{t("header_github", Astro.currentLocale!)}</span
             >
             <Icon name="mdi:github" width="32" height="32" aria-hidden="true" />
         </a>
@@ -68,11 +69,6 @@ const today = new Date();
         background: linear-gradient(var(--gray-gradient)) no-repeat;
         color: rgb(var(--gray));
         text-align: center;
-
-        .dark & {
-            background: linear-gradient(rgba(13, 17, 23, 80%), #0d1117)
-                no-repeat;
-        }
     }
     .social-links {
         display: flex;
@@ -85,11 +81,7 @@ const today = new Date();
             color: rgb(var(--gray));
         }
         a:hover {
-            color: rgb(var(--gray-dark));
-        }
-
-        .dark & a:hover {
-            color: rgb(var(--black));
+            color: var(--footer-link-hover);
         }
     }
 </style>

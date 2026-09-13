@@ -1,7 +1,12 @@
 ---
 import { Icon } from "astro-icon/components";
 import HeaderLink from "./HeaderLink.astro";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
 import ThemeToggle from "./ThemeToggle.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import t from "../i18n/strings";
+
+const url = (path?: string) => getRelativeLocaleUrl(Astro.currentLocale!, path);
 ---
 
 <aside
@@ -17,18 +22,20 @@ import ThemeToggle from "./ThemeToggle.astro";
         <button
             class="close-btn"
             data-sidebar-close
-            aria-label="Close navigation menu"
+            aria-label={t("sidebar_close", Astro.currentLocale!)}
         >
             <Icon name="mdi:close" width="32" height="32" aria-hidden="true" />
         </button>
 
         <div class="sidebar-content">
             <div class="nav-links">
-                <HeaderLink href="/">Home</HeaderLink>
-                <HeaderLink href="/about">About us</HeaderLink>
-                <HeaderLink href="/fll">FLL</HeaderLink>
-                <HeaderLink href="/ftc">FTC</HeaderLink>
-                <HeaderLink href="/blog">Blog</HeaderLink>
+                <HeaderLink href={url("/")}>{t("nav_home", Astro.currentLocale!)}</HeaderLink>
+                <HeaderLink href={url("/about")}>
+                    {t("header_about", Astro.currentLocale!)}
+                </HeaderLink>
+                <HeaderLink href={url("/fll")}>FLL</HeaderLink>
+                <HeaderLink href={url("/ftc")}>FTC</HeaderLink>
+                <HeaderLink href={url("/blog")}>{t("nav_blog", Astro.currentLocale!)}</HeaderLink>
             </div>
 
             <div class="sidebar-divider"></div>
@@ -99,6 +106,10 @@ import ThemeToggle from "./ThemeToggle.astro";
             <div class="sidebar-divider"></div>
 
             <ThemeToggle />
+
+            <div class="sidebar-divider"></div>
+
+            <LanguageSwitcher variant="inline" />
         </div>
     </nav>
 </aside>
@@ -132,10 +143,6 @@ import ThemeToggle from "./ThemeToggle.astro";
         display: flex;
         flex-direction: column;
         overflow-y: auto;
-
-        .dark & {
-            background: var(--bg-surface, #161b22);
-        }
     }
 
     /* Open state */
@@ -219,12 +226,8 @@ import ThemeToggle from "./ThemeToggle.astro";
         }
 
         a:hover {
-            background: rgb(var(--gray-light));
+            background: var(--sidebar-social-hover-bg);
             color: var(--accent);
-
-            .dark & {
-                background: rgba(var(--gray-light), 10%);
-            }
         }
     }
 

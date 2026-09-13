@@ -1,0 +1,350 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { Icon } from "astro-icon/components";
+import { i18n } from "astro:config/client";
+import t from "../i18n/strings";
+
+interface Props {
+    /** "expand": icon-only button that springs open into a pill (desktop header).
+     *  "inline": always-visible chooser, no toggle (mobile sidebar). */
+    variant?: "expand" | "inline";
+}
+
+const { variant = "expand" } = Astro.props;
+const isInline = variant === "inline";
+
+const locales = (i18n?.locales ?? ["en", "it"]) as string[];
+const currentLocale = Astro.currentLocale ?? "en";
+
+// Strip the locale prefix from the current path so we stay on the same
+// page when switching language (e.g. /en/about -> /about -> /it/about).
+const pathname = Astro.url.pathname;
+const [, firstRaw, ...rest] = pathname.split("/");
+const first = firstRaw ?? "";
+const rawPath = locales.includes(first) ? `/${rest.join("/")}` : pathname;
+const pathWithoutLocale = rawPath === "/" || rawPath === "" ? "/" : rawPath.replace(/\/$/, "") || "/";
+
+const localeUrls = Object.fromEntries(
+    locales.map((locale) => [locale, getRelativeLocaleUrl(locale, pathWithoutLocale)]),
+);
+
+const label = t("header_toggleLanguage", currentLocale);
+---
+
+{
+    isInline ? (
+        <nav class="language-switcher language-switcher--inline" aria-label={label}>
+            <Icon
+                name="mdi:translate"
+                width="28"
+                height="28"
+                aria-hidden="true"
+                class="switcher-icon"
+            />
+            <div class="lang-list">
+                {locales.map((locale, i) => (
+                    <>
+                        {i > 0 && (
+                            <span class="separator" aria-hidden="true">
+                                |
+                            </span>
+                        )}
+                        {locale === currentLocale ? (
+                            <span class="lang active" aria-current="true" lang={locale}>
+                                {locale.toUpperCase()}
+                            </span>
+                        ) : (
+                            <a
+                                class="lang"
+                                href={localeUrls[locale]}
+                                hreflang={locale}
+                                lang={locale}
+                                title={locale.toUpperCase()}
+                            >
+                                {locale.toUpperCase()}
+                            </a>
+                        )}
+                    </>
+                ))}
+            </div>
+        </nav>
+    ) : (
+        <div class="language-switcher" data-lang-switcher>
+            <button
+                type="button"
+                class="lang-toggle"
+                aria-expanded="false"
+                aria-label={label}
+                title={label}
+                data-lang-toggle
+            >
+                <Icon
+                    name="mdi:translate"
+                    width="32"
+                    height="32"
+                    aria-hidden="true"
+                    class="switcher-icon"
+                />
+            </button>
+            <div class="lang-options" data-lang-options>
+                {locales.map((locale, i) => (
+                    <>
+                        {i > 0 && (
+                            <span class="separator" aria-hidden="true">
+                                |
+                            </span>
+                        )}
+                        {locale === currentLocale ? (
+                            <span class="lang active" aria-current="true" lang={locale}>
+                                {locale.toUpperCase()}
+                            </span>
+                        ) : (
+                            <a
+                                class="lang"
+                                href={localeUrls[locale]}
+                                hreflang={locale}
+                                lang={locale}
+                                title={locale.toUpperCase()}
+                            >
+                                {locale.toUpperCase()}
+                            </a>
+                        )}
+                    </>
+                ))}
+            </div>
+        </div>
+    )
+}
+
+<style>
+    /* Base: inherit color so the icon matches whatever sits next to it */
+    .language-switcher {
+        display: inline-flex;
+        align-items: center;
+        color: inherit;
+        font-size: 0.85em;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+    }
+
+    .switcher-icon {
+        display: block;
+    }
+
+    .separator {
+        opacity: 0.4;
+        font-weight: 400;
+    }
+
+    .lang {
+        padding: 0.15em 0.3em;
+        border-radius: 6px;
+        text-decoration: none;
+        color: rgb(var(--gray));
+        border-bottom: none !important;
+    }
+
+    a.lang:hover {
+        color: var(--accent);
+    }
+
+    .lang.active {
+        color: var(--accent);
+        user-select: none;
+    }
+
+    /* ---- Expand variant (desktop header): icon-only button ---- */
+    .lang-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        background: none;
+        cursor: pointer;
+        color: inherit;
+        padding: 0.4em;
+        border-radius: 8px;
+        transition:
+            color 0.2s,
+            transform 0.2s;
+    }
+
+    .lang-toggle:hover {
+        color: var(--accent);
+        filter: brightness(1.2);
+    }
+
+    /* Little press feedback */
+    .lang-toggle:active .switcher-icon {
+        transform: scale(0.88);
+    }
+
+    .lang-toggle .switcher-icon {
+        transition: transform 0.18s ease;
+    }
+
+    .language-switcher.open .lang-toggle {
+        color: var(--accent);
+    }
+
+    /* The expanding pill: collapsed takes no space, open springs out */
+    .lang-options {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35em;
+        max-width: 0;
+        opacity: 0;
+        transform: translateX(-12px) scale(0.85);
+        transform-origin: left center;
+        overflow: hidden;
+        white-space: nowrap;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        padding: 0;
+        margin-left: 0;
+        pointer-events: none;
+        transition:
+            max-width 0.38s cubic-bezier(0.34, 1.4, 0.64, 1),
+            opacity 0.22s ease,
+            transform 0.38s cubic-bezier(0.34, 1.4, 0.64, 1),
+            padding 0.3s ease,
+            margin 0.3s ease,
+            border-color 0.25s ease,
+            background 0.25s ease;
+    }
+
+    .language-switcher.open .lang-options {
+        max-width: 14em;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+        margin-left: 0.15em;
+        padding: 0.35em 0.8em;
+        border-color: rgb(var(--gray-light));
+        background: rgba(127, 127, 127, 0.12);
+    }
+
+    /* Staggered pop-in for the items inside the pill */
+    .lang-options > * {
+        opacity: 0;
+        transform: translateX(-6px);
+        transition:
+            opacity 0.2s ease,
+            transform 0.3s cubic-bezier(0.34, 1.4, 0.64, 1);
+    }
+
+    .language-switcher.open .lang-options > *:nth-child(1) {
+        transition-delay: 0.08s;
+    }
+    .language-switcher.open .lang-options > *:nth-child(2) {
+        transition-delay: 0.14s;
+    }
+    .language-switcher.open .lang-options > *:nth-child(3) {
+        transition-delay: 0.2s;
+    }
+
+    .language-switcher.open .lang-options > * {
+        opacity: 1;
+        transform: none;
+    }
+
+    /* ---- Inline variant (mobile sidebar): always-visible chooser ---- */
+    .language-switcher--inline {
+        gap: 0.6em;
+        font-size: 1em;
+        color: rgb(var(--gray));
+    }
+
+    .language-switcher--inline .switcher-icon {
+        opacity: 0.8;
+        flex-shrink: 0;
+    }
+
+    .lang-list {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35em;
+        white-space: nowrap;
+    }
+
+    .language-switcher--inline .lang {
+        padding: 0.4em 0.5em;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .lang-options,
+        .lang-options > *,
+        .switcher-icon,
+        .lang-toggle {
+            transition: none;
+        }
+    }
+</style>
+
+<script>
+    // Toggle .open on the closest switcher; close others, close on
+    // outside click or Escape. Only the "expand" variant renders a
+    // toggle, so inline instances are untouched.
+    function setupLangSwitchers() {
+        const switchers = document.querySelectorAll("[data-lang-switcher]");
+
+        switchers.forEach((switcher) => {
+            const toggle = switcher.querySelector("[data-lang-toggle]");
+            if (!toggle || toggle.hasAttribute("data-lang-ready")) return;
+            toggle.setAttribute("data-lang-ready", "true");
+
+            toggle.addEventListener("click", (e) => {
+                e.stopPropagation();
+                const wasOpen = switcher.classList.contains("open");
+                document
+                    .querySelectorAll("[data-lang-switcher].open")
+                    .forEach((el) => {
+                        el.classList.remove("open");
+                        el.querySelector("[data-lang-toggle]")?.setAttribute(
+                            "aria-expanded",
+                            "false",
+                        );
+                    });
+                if (!wasOpen) {
+                    switcher.classList.add("open");
+                    toggle.setAttribute("aria-expanded", "true");
+                }
+            });
+        });
+    }
+
+    setupLangSwitchers();
+
+    // Re-run after Astro view transitions / client navigation
+    document.addEventListener("astro:after-swap", setupLangSwitchers);
+
+    document.addEventListener("click", (e) => {
+        const target = e.target as HTMLElement;
+        if (!target.closest("[data-lang-switcher]")) {
+            document
+                .querySelectorAll("[data-lang-switcher].open")
+                .forEach((el) => {
+                    el.classList.remove("open");
+                    el.querySelector("[data-lang-toggle]")?.setAttribute(
+                        "aria-expanded",
+                        "false",
+                    );
+                });
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            document
+                .querySelectorAll("[data-lang-switcher].open")
+                .forEach((el) => {
+                    el.classList.remove("open");
+                    const btn = el.querySelector(
+                        "[data-lang-toggle]",
+                    ) as HTMLElement | null;
+                    btn?.setAttribute("aria-expanded", "false");
+                    btn?.focus();
+                });
+        }
+    });
+</script>
