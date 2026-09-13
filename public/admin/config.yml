@@ -15,6 +15,18 @@ media_libraries:
     default:
         config:
             slugify_filename: true
+            # Downscale/convert uploads client-side so a multi-MB screenshot
+            # doesn't blow up the single GraphQL commit request (which fails
+            # after a long wait, surfacing in Firefox as a CORS error).
+            transformations:
+                png:
+                    format: webp
+                    quality: 85
+                    width: 1920
+                jpeg:
+                    format: webp
+                    quality: 85
+                    width: 1920
 
 # URL-encode file paths written to frontmatter + drop empty optional fields
 # (avoids `heroImage: ''` noise).
