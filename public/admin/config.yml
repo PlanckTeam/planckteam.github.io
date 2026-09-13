@@ -8,14 +8,19 @@ backend:
 media_folder: /media
 public_folder: /media
 
+i18n:
+    structure: multiple_folders
+    locales: [en, it]
+
 collections:
     - name: blog
       label: Posts
       label_singular: Post
       folder: /src/content/blog
+      i18n: true
       fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: string }
+          - { label: Title, name: title, widget: string, i18n: true }
+          - { label: Description, name: description, widget: string, i18n: true }
           - { label: Publish Date, name: pubDate, widget: datetime, type: date }
           - {
                 label: Updated Date,
@@ -29,4 +34,4 @@ collections:
                 widget: image,
                 required: false,
             }
-          - { label: Body, name: body, widget: richtext }
+          - { label: Body, name: body, widget: richtext, i18n: true }
