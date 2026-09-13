@@ -32,11 +32,34 @@ export default defineConfig({
             },
         },
         {
+            provider: fontProviders.local(),
+            name: "Membra",
+            cssVariable: "--font-membra",
+            fallbacks: ["sans-serif"],
+            options: {
+                variants: [
+                    {
+                        src: ["./src/assets/fonts/membra.woff"],
+                        weight: 500,
+                        style: "normal",
+                        display: "swap",
+                    },
+                ],
+            },
+        },
+        {
             provider: fontProviders.fontsource(),
             name: "Tourney",
             cssVariable: "--font-tourney",
             fallbacks: ["sans-serif"],
         },
+        {
+            provider: fontProviders.fontsource(),
+            name: "Quicksand",
+            cssVariable: "--font-quicksand",
+            fallbacks: ["sans-serif"],       
+            weights: ["300"],
+        }
     ],
     server: {
         port: 4321,

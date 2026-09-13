@@ -1,1 +1,1 @@
-export const SITE_TITLE = "Planck Team";
+export const SITE_TITLE = "PLANCK TEAM";

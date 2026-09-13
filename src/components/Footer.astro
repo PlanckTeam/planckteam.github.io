@@ -68,11 +68,6 @@ const today = new Date();
         background: linear-gradient(var(--gray-gradient)) no-repeat;
         color: rgb(var(--gray));
         text-align: center;
-
-        .dark & {
-            background: linear-gradient(rgba(13, 17, 23, 80%), #0d1117)
-                no-repeat;
-        }
     }
     .social-links {
         display: flex;
@@ -85,11 +80,7 @@ const today = new Date();
             color: rgb(var(--gray));
         }
         a:hover {
-            color: rgb(var(--gray-dark));
-        }
-
-        .dark & a:hover {
-            color: rgb(var(--black));
+            color: var(--footer-link-hover);
         }
     }
 </style>

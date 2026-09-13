@@ -138,10 +138,6 @@ const url = (path?: string) => getRelativeLocaleUrl(Astro.currentLocale!, path);
         display: flex;
         flex-direction: column;
         overflow-y: auto;
-
-        .dark & {
-            background: var(--bg-surface, #161b22);
-        }
     }
 
     /* Open state */
@@ -225,12 +221,8 @@ const url = (path?: string) => getRelativeLocaleUrl(Astro.currentLocale!, path);
         }
 
         a:hover {
-            background: rgb(var(--gray-light));
+            background: var(--sidebar-social-hover-bg);
             color: var(--accent);
-
-            .dark & {
-                background: rgba(var(--gray-light), 10%);
-            }
         }
     }
 

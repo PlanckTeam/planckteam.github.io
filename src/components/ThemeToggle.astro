@@ -4,20 +4,22 @@ import { Icon } from "astro-icon/components";
 
 <button class="theme-toggle" aria-label="Toggle theme">
     <pre>Switch theme:</pre>
-    <Icon
-        class="sun"
-        name="mdi:white-balance-sunny"
-        width="32"
-        height="32"
-        aria-hidden="true"
-    />
-    <Icon
-        class="moon"
-        name="mdi:weather-night"
-        width="32"
-        height="32"
-        aria-hidden="true"
-    />
+    <span class="sun-icon">
+        <Icon
+            name="mdi:white-balance-sunny"
+            width="32"
+            height="32"
+            aria-hidden="true"
+        />
+    </span>
+    <span class="moon-icon">
+        <Icon
+            name="mdi:weather-night"
+            width="32"
+            height="32"
+            aria-hidden="true"
+        />
+    </span>
 </button>
 
 <style>
@@ -32,20 +34,13 @@ import { Icon } from "astro-icon/components";
             padding: 0 1em 0 0;
         }
     }
-    .sun {
-        display: block;
+    .sun-icon {
+        display: var(--sun-display);
         color: rgb(var(--gray));
     }
-    .moon {
-        display: none;
+    .moon-icon {
+        display: var(--moon-display);
         color: rgb(var(--gray));
-    }
-
-    :global(.dark) .sun {
-        display: none;
-    }
-    :global(.dark) .moon {
-        display: block;
     }
 </style>
 
