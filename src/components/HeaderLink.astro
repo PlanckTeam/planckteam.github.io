@@ -5,8 +5,26 @@ type Props = HTMLAttributes<"a">;
 
 const { href, class: className, ...props } = Astro.props;
 const pathname = Astro.url.pathname;
-const subpath = pathname.match(/[^\/]+/g);
-const isActive = href === pathname || href === "/" + (subpath?.[0] || "");
+
+// Strip the trailing slash (except for root "/"),
+// so "/it/fll" and "/it/fll/" are treated as equal.
+// Without this, markdown links (no trailing slash) led to a page
+// without highlight, while header links (trailing slash from
+// getRelativeLocaleUrl) were highlighted.
+const normalize = (p: string) =>
+    p.length > 1 && p.endsWith("/") ? p.slice(0, -1) : p;
+const cleanHref = normalize(String(href ?? ""));
+const cleanPath = normalize(pathname);
+
+// Home (e.g. "/it") is active only on exact match, otherwise it
+// would be active on every page (every path starts with "/it").
+// Other entries are also active on subpages
+// (e.g. "/it/blog" is active on "/it/blog/my-post").
+const hrefSegments = cleanHref.split("/").filter(Boolean);
+const isHome = hrefSegments.length <= 1;
+const isActive =
+    cleanHref === cleanPath ||
+    (!isHome && cleanPath.startsWith(cleanHref + "/"));
 ---
 
 <a href={href} class:list={[className, { active: isActive }]} {...props}>
@@ -17,8 +35,9 @@ const isActive = href === pathname || href === "/" + (subpath?.[0] || "");
         display: inline-block;
         text-decoration: none;
         user-select: none;
-    }
-    a.active {
-        border-bottom-color: var(--accent);
+
+        &.active {
+            border-bottom-color: var(--accent);
+        }
     }
 </style>

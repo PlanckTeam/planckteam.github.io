@@ -37,10 +37,9 @@ const { title, description } = Astro.props;
 />
 <meta name="generator" content={Astro.generator} />
 
-<Font cssVariable="--font-atkinson" preload />
 <Font cssVariable="--font-membra" preload />
+<Font cssVariable="--font-dmsans" preload />
 <Font cssVariable="--font-quicksand" preload />
-<Font cssVariable="--font-tourney" preload />
 
 {/* Canonical URL */}
 <link rel="canonical" href={canonicalURL} />
@@ -132,7 +131,7 @@ const { title, description } = Astro.props;
     }
 
     body {
-        font-family: var(--font-atkinson);
+        font-family: var(--font-dmsans);
         margin: 0;
         padding: 0;
         text-align: left;
@@ -143,10 +142,10 @@ const { title, description } = Astro.props;
         color: rgb(var(--gray-dark));
         font-size: 20px;
         line-height: 1.7;
+    }
 
-        .dark & {
-            background-color: var(--bg-body);
-        }
+    .dark body {
+        background-color: var(--bg-body);
     }
 
     main {
@@ -180,13 +179,8 @@ const { title, description } = Astro.props;
         height: 1px;
         width: 1px;
         overflow: hidden;
-        /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-        clip: rect(1px 1px 1px 1px);
-        /* maybe deprecated but we need to support legacy browsers */
         clip: rect(1px, 1px, 1px, 1px);
-        /* modern browsers, clip-path works inwards from each corner */
         clip-path: inset(50%);
-        /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
         white-space: nowrap;
     }
 </style>

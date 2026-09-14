@@ -10,26 +10,18 @@ export default defineConfig({
     integrations: [mdx(), sitemap(), icon()],
     fonts: [
         {
-            provider: fontProviders.local(),
-            name: "Atkinson",
-            cssVariable: "--font-atkinson",
+            provider: fontProviders.fontsource(),
+            name: "DM Sans",
+            cssVariable: "--font-dmsans",
             fallbacks: ["sans-serif"],
-            options: {
-                variants: [
-                    {
-                        src: ["./src/assets/fonts/atkinson-regular.woff"],
-                        weight: 400,
-                        style: "normal",
-                        display: "swap",
-                    },
-                    {
-                        src: ["./src/assets/fonts/atkinson-bold.woff"],
-                        weight: 700,
-                        style: "normal",
-                        display: "swap",
-                    },
-                ],
-            },
+            weights: ["400", "500", "700"],
+        },
+        {
+            provider: fontProviders.fontsource(),
+            name: "Quicksand",
+            cssVariable: "--font-quicksand",
+            fallbacks: ["sans-serif"],       
+            weights: ["300"],
         },
         {
             provider: fontProviders.local(),
@@ -46,19 +38,6 @@ export default defineConfig({
                     },
                 ],
             },
-        },
-        {
-            provider: fontProviders.fontsource(),
-            name: "Tourney",
-            cssVariable: "--font-tourney",
-            fallbacks: ["sans-serif"],
-        },
-        {
-            provider: fontProviders.fontsource(),
-            name: "Quicksand",
-            cssVariable: "--font-quicksand",
-            fallbacks: ["sans-serif"],       
-            weights: ["300"],
         }
     ],
     server: {

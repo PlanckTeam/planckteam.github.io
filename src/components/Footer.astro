@@ -69,19 +69,21 @@ const today = new Date();
         background: linear-gradient(var(--gray-gradient)) no-repeat;
         color: rgb(var(--gray));
         text-align: center;
-    }
-    .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 1em;
-        margin: 1em 0;
 
-        a {
-            text-decoration: none;
-            color: rgb(var(--gray));
-        }
-        a:hover {
-            color: var(--footer-link-hover);
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            margin: 1em 0;
+
+            a {
+                text-decoration: none;
+                color: rgb(var(--gray));
+
+                &:hover {
+                    color: var(--footer-link-hover);
+                }
+            }
         }
     }
 </style>

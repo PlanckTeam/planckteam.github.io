@@ -83,6 +83,7 @@ const posts = blogs
         list-style-type: none;
         margin: 0;
         padding: 0;
+
         li {
             display: flex;
             justify-content: center;
@@ -90,22 +91,7 @@ const posts = blogs
             box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
             border-radius: 12px;
             background: var(--card-bg);
-            p {
-                padding-top: 0.5em;
-                margin: 0;
-                line-height: 1;
-            }
-            * {
-                text-decoration: none;
-                transition: 0.2s ease;
-            }
-            /* astro:assets Image renders the img, so escape scoping */
-            :global(img) {
-                margin-bottom: 0.5rem;
-                max-width: 180px;
-                height: auto;
-                border-radius: 8px;
-            }
+
             a {
                 display: flex;
                 flex-direction: column;
@@ -113,36 +99,50 @@ const posts = blogs
                 width: 100%;
                 padding: 1em;
                 border-radius: 12px;
+                text-decoration: none;
+                transition: 0.2s ease;
+
+                &:hover {
+                    box-shadow: var(--card-hover-shadow);
+                    background: var(--card-hover-bg);
+                }
+
+                &:active {
+                    box-shadow: var(--card-active-shadow);
+                }
             }
-            a:hover {
-                box-shadow: var(--card-hover-shadow);
-                background: var(--card-hover-bg);
+
+            /* astro:assets Image renders the img, so escape scoping */
+            :global(img) {
+                margin-bottom: 0.5rem;
+                max-width: 180px;
+                height: auto;
+                border-radius: 8px;
             }
-            a:active {
-                box-shadow: var(--card-active-shadow);
+
+            .title {
+                margin: 0;
+                color: rgb(var(--black));
+                line-height: 1;
+            }
+
+            .date {
+                margin: 0;
+                padding-top: 0.5em;
+                color: rgb(var(--gray));
+                line-height: 1;
             }
         }
-    }
-
-    .title {
-        margin: 0;
-        color: rgb(var(--black));
-        line-height: 1;
-    }
-
-    .date {
-        margin: 0;
-        color: rgb(var(--gray));
     }
 
     @media (max-width: 720px) {
         ul {
             gap: 0.5em;
-        }
 
-        ul li {
-            width: 100%;
-            text-align: center;
+            li {
+                width: 100%;
+                text-align: center;
+            }
         }
     }
 </style>
